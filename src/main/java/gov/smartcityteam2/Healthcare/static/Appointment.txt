@@ -1,0 +1,8 @@
+AppointmentID;AppointmentDate;AppointmentDoctor;0.0;DoctorReport;DoctorReport
+I2023/09/18123;2023/09/18;234;55.0;Couhgh;doething
+I2023/09/1812345;2023/09/18;4;55.0;Cough;Tired
+I2023/09/1812345;2023/09/18;8;1000.0;Coughing;Phystol
+I2023/09/18999;2023/09/18;8;0.0;Tired;New
+I2023/09/18123456;2023/09/18;8;0.0;Fever is really high ;give medicine for fever
+I2023/09/181111;2023/09/18;8;0.0;Sad;Happy
+I2023/09/1912345;2023/09/19;8;1490.0;Test;Test

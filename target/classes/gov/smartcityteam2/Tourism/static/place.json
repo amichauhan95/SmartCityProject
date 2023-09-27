@@ -1,0 +1,32 @@
+[
+  {
+    "name": "New York State Capitol",
+    "placeDes": "The New York State Capitol, the seat of the New York state government, is located in Albany, the capital city of the U.S. state of New York.",
+    "rate": 0.0,
+    "numOfReviews": 0,
+  },
+  {
+    "name": "New York State Museum",
+    "placeDes": "The New York State Museum is a research-backed institution in Albany, New York, United States.",
+    "rate": 0.0,
+    "numOfReviews": 0,
+  },
+  {
+    "name": "Albany Institute of History & Art",
+    "placeDes": "The institute's three-building complex includes the late 19th-century Rice Building, the only freestanding Beaux-Arts mansion in the city, designed by Richard Morris Hunt and donated to the institute by one of its former benefactors.",
+    "rate": 0.0,
+    "numOfReviews": 0,
+  },
+  {
+    "name": "Washington Park",
+    "placeDes": "The 81-acre park was created during the 1870s-80s from a design by Calvert Vaux and Fredrick Olmsted, who is famous for New York City's Central Park.",
+    "rate": 0.0,
+    "numOfReviews": 0,
+  },
+  {
+    "name": "Palace Theatre",
+    "placeDes": "The Palace Theatre has been entertaining audiences since 1931. Originally built as an RKO movie theater, the Palace was Albany’s largest movie theater.",
+    "rate": 0.0,
+    "numOfReviews": 0,
+  },
+]

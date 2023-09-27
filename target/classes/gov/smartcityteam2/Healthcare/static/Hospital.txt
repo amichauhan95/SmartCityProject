@@ -1,0 +1,9 @@
+Albany Med 1;1220 Lawerence Ave;678-879-3458;ab@gmail.com
+Albany Med 2;1220 Washington Ave;345-345-4545;ab345@gmail.com
+User Hospital;New Ave,ALbany Ny 12455;674-456-2323;kjdshkjfdhs@gmail.com
+Saint George Hospital;1200 New Ave,123;555-343-444;test@gmail.com
+New Hope Hospital;123 Washington Ave, ALbany Ny 12230;607-343-233;test@gmail.com
+Test;Hospital;607-232-9809;testhospital@gmail.com
+Teas;Hopital;567-789-989;dgfd@jj.j
+New;Hospital;607-345-6789;test@gmail.com
+New;Hospital2;456-456-4567;test@gmail.com

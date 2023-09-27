@@ -1,0 +1,18 @@
+department,name,street,city,state,zip,phone
+Fire Department, Albany Fire Department,26 Broad St,Albany,NY,12202,5184477879
+Fire Department, Menands Fire Co.,250 Broadway, Menands,NY,12204,5184639494
+Fire Department, Rensselaer Fire Department-North End Station,2 Saint Francis Pl,Rensselaer,NY,12144,5184632883
+Fire Department, Prospect Volunteer Fire Department,1 State St,Prospect,NY,13435,3158966514
+Fire Department, West Albany Fire Company-Station 1,113 Sand Creek Rd,Albany,NY,12205,5184384750
+Fire Department, Rensselaer City Fire Department,959 Broadway,Rensselaer,NY,12144,5184653243
+Fire Department, Defreestville Fire Department,350 N Greenbush Rd,Troy,NY,12180,5182863612
+Paramedic Department, Mohawk Ambulance Service,570 Central Ave,Albany, NY,12206,5184344151
+Paramedic Department, Albany Med EMS Outreach,43 New Scotland Ave MC73,Albany, NY,12208,5182628559
+Paramedic Department, Capital District Ambulance Service,89 West St,Albany, NY,12206,5184344444
+Paramedic Department, United New York Ambulance Network,1450 Western Ave Ste 101,Albany, NY,12203,5186944420
+Paramedic Department, Colonie Ems Station 3,494 Albany Shaker Rd,Albany, NY,12211,5187822645
+Police Department,Albany Police Department,536 Western Ave,Albany, NY,12203,5184585660
+Police Department,Albany Police Department,126 Arch St, Albany, NY 12202,5184628049
+Police Department,Rensselaer Police Department,201 Broadway, Rensselaer, NY 12144,5184627451
+Police Department,Watervliet Police Department,2 15th St, Watervliet, NY 12189,5182703833
+Police Department,Green Island Police Department,73 George St, Green Island, NY 12183,5182732401
