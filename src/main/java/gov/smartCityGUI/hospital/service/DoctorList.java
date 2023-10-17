@@ -1,3 +1,9 @@
+/*
+@author Ami Chauhan
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.hospital.service;
 
 import java.io.BufferedReader;
@@ -9,17 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
-import gov.smartCityGUI.admin.models.*;
 import gov.smartCityGUI.hospital.model.*;
-import gov.smartCityGUI.hospital.service.*;
-import gov.smartCityGUI.hospital.controller.*;
 
 public class DoctorList {
 
   private List<Doctor> doctorList = new ArrayList<Doctor>();
 
 	//***********************************************************************//
-
+  //function returns available doctor
   public String getAvailableDoctor() {
     String availableDoctor = "Test";
     double doctorFee = 0;
@@ -56,7 +59,7 @@ public class DoctorList {
   }
 
 	//***********************************************************************//
-
+  // doctor availblity is changed to true when functin is called
   public void freeAvailiblity(String userID) {
     addDoctor();
     for (Doctor d : doctorList) {
@@ -69,7 +72,7 @@ public class DoctorList {
   }
 
 	//***********************************************************************//
-
+  // funcation updates the doctor text file
   public void updateDoctor() {
 
     int count = 0;
@@ -100,7 +103,7 @@ public class DoctorList {
   }
 
 	//***********************************************************************//
-
+  // function returns boolean when doctor is added to the text file
   public boolean addDoctor(String doctorID, String doctorFirstName, String doctorLastName, String doctorPhone,
       String doctorEmail, double doctorFee) {
     boolean doctorAvailiblity = true;
@@ -119,7 +122,7 @@ public class DoctorList {
   }
 
 	//***********************************************************************//
-
+  // function adds doctor to the list
   public void addDoctor() {
     doctorList.clear();
     try {
@@ -142,7 +145,7 @@ public class DoctorList {
   }
 
 	//***********************************************************************//
-
+  // function returns list of doctors
 	public List<Doctor> getDoctorList() {
 
 		List<Doctor> list = new ArrayList<Doctor>();
@@ -154,7 +157,7 @@ public class DoctorList {
   	}
 
 	//***********************************************************************//
-
+  // funcation returns boolean if doctor id is present in doctor list
   public boolean doctorPresent(String doctorID) {
     addDoctor();
     for (Doctor b : doctorList) {

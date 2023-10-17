@@ -1,3 +1,8 @@
+/**
+  * Team Member(s) working on this class: Melih Kartal
+  * Project: Smart City
+  * @author: Melih Kartal
+**/
 package gov.smartCityGUI.education.models;
 
 import java.io.FileWriter;
@@ -20,10 +25,20 @@ public class Credentials {
   SchoolSystem userDefined;
 
   // no-arg constructor
+  /**
+    * public Credentials() acts as a default constructor
+  **/
   public Credentials() {
 
   }
 
+  /**
+    * @param String name represents the first name of the user
+    * @param String lastName represents that last name of the user
+    * @param String age represents the age of the user
+    * @param String GPA represents the GPA of the user
+    * 
+  **/
   public Credentials(String name, String lastName, String age, String GPA, SchoolSystem userDefined) {
     this.name = name;
     this.lastName = lastName;

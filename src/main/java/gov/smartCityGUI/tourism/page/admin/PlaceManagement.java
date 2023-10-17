@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.page.admin;
 
 import java.awt.*;
@@ -60,18 +65,18 @@ public class PlaceManagement implements ActionListener{
   
   public PlaceManagement(User user){
     this.user = user;
+    frame.setSize(800,700);
     createHeader();
     /* Default value: 1*/
     createFrames(1, "");
   }
 
+  // header component for the page
   public void createHeader(){
     
     frame.setLayout(new BorderLayout());
     
     topPanel = new JPanel();
-    // topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
-    // Back botton
     backButton = Gui.back();
     backButton.addActionListener(this);
     topPanel.add(backButton);
@@ -88,6 +93,11 @@ public class PlaceManagement implements ActionListener{
     frame.add(topPanel, BorderLayout.NORTH);
   }
 
+  /**
+    show and filter the place by given option algo and keyword
+    @param option {1,2,3} refers to diff sorting algo {name, rate, reviews}
+    keyword, search a place if the place contains keyword string
+  **/
   public void placeFilter(int option, String keyword){
     String [][] data = new String[0][0];
 
@@ -143,12 +153,15 @@ public class PlaceManagement implements ActionListener{
       text.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
 
       /*  Button */
+
       Button editButton = new Button("Edit");
       Button deleteButton = new Button("Delete");
+
       editButton.setBounds(50,50,1, 23);
       editButton.setName(temp[2]);
       deleteButton.setBounds(50,50,1, 23);
       deleteButton.setName(temp[2]);
+
       
       editButton.addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent e) { 
@@ -182,9 +195,9 @@ public class PlaceManagement implements ActionListener{
     centerPanel.setVisible(true);
   }
 
+  // search Bar component for the page
   public void searchBar(){
     searchPanel = new JPanel();
-    // searchPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
     String sortOption[]={"Sort By name","Rate","Reviews"}; 
     cb = new JComboBox(sortOption);    
     searchButton = new JButton("Search"); 
@@ -214,7 +227,8 @@ public class PlaceManagement implements ActionListener{
     centerPanel.add(searchPanel2);
     centerPanel.add(searchPanel3);
   }
-  
+
+  // main frams contains all diff component
   public void createFrames(int option, String keyword){
     // Data panel
     if(scrlpanel != null) frame.remove(scrlpanel);
@@ -239,10 +253,11 @@ public class PlaceManagement implements ActionListener{
     frame.setVisible(true);
   }
 
+  // Triggers diff events
   public void actionPerformed(ActionEvent e){
     if(e.getSource() == backButton){
       frame.dispose();
-      new UserPage(this.user);
+      new AdminPage(this.user);
     }
     if(e.getSource() == homeButton){
       frame.dispose();
@@ -273,7 +288,23 @@ public class PlaceManagement implements ActionListener{
       addPlacePage();
     }
   }
+  
+  /**
+    Convert image to Jlabel component
+    @param image name
+    @return image Jlabel
+  **/
+  public JLabel imageFormat(String image){
+    ImageIcon imageIcon = new ImageIcon(IMAGE_PATH + image);
+    Image scaledImage = imageIcon.getImage().getScaledInstance(300, 200, Image.SCALE_FAST);
+    imageIcon = new ImageIcon(scaledImage);
+    return new JLabel(imageIcon);
+  }
 
+  /**
+    show add place page
+    @param placeid, for which place
+  **/
   public void addPlacePage(){
     JFrame f = new JFrame("Add Place Form");
   
@@ -306,7 +337,6 @@ public class PlaceManagement implements ActionListener{
     JPanel temp5 = new JPanel ();
     
     temp.add(new JLabel("Name:"));
-    // temp.add(Box.createRigidArea(new Dimension(25, 0)));
     temp.add(nameText);
 
     temp1.add(new JLabel("Rate:"));
@@ -314,7 +344,6 @@ public class PlaceManagement implements ActionListener{
     temp1.add(rateText);
 
     temp2.add(new JLabel("Reivew:"));
-    // temp.add(Box.createRigidArea(new Dimension(8, 0)));
     temp2.add(reviewlText);
 
     temp3.add(new JLabel("Detail:"));
@@ -327,14 +356,7 @@ public class PlaceManagement implements ActionListener{
     temp5.add(exitButton);
 
     title.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // rateLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // rateText.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // desLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // desLabelText.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // reviewlText.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // rateText.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-// Add "glue" at the start and end of the panel
     panel.add(Box.createVerticalGlue());
     panel.add(title);
     panel.add(Box.createRigidArea(new Dimension(0, 35)));
@@ -378,7 +400,6 @@ public class PlaceManagement implements ActionListener{
           f.dispose();
           frame.dispose();
           new PlaceManagement(user);
-          // te();
         } else {
           JOptionPane.showMessageDialog(f,"*Rate must be between 0 - 5\n*Review must be >= 0\n*Detail must not be empty\n*Place must not be empty\n*Image path must not be empty","Alert",JOptionPane.WARNING_MESSAGE);
         }
@@ -424,13 +445,10 @@ public class PlaceManagement implements ActionListener{
   
   }
   
-  public JLabel imageFormat(String image){
-    ImageIcon imageIcon = new ImageIcon(IMAGE_PATH + image);
-    Image scaledImage = imageIcon.getImage().getScaledInstance(300, 200, Image.SCALE_FAST);
-    imageIcon = new ImageIcon(scaledImage);
-    return new JLabel(imageIcon);
-  }
-
+  /**
+    show edit place page
+    @param placeid, for which place
+  **/
   public void editPlacePage(int placeId){
     JFrame f = new JFrame("Edit Place Form");
   
@@ -484,14 +502,7 @@ public class PlaceManagement implements ActionListener{
     temp5.add(exitButton);
 
     title.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // rateLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // rateText.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // desLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // desLabelText.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // reviewlText.setAlignmentX(Component.CENTER_ALIGNMENT);
-    // rateText.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-// Add "glue" at the start and end of the panel
     panel.add(Box.createVerticalGlue());
     panel.add(title);
     panel.add(Box.createRigidArea(new Dimension(0, 35)));
@@ -554,7 +565,7 @@ public class PlaceManagement implements ActionListener{
             JFileChooser getFile = new JFileChooser();
  
             getFile.setCurrentDirectory(new File(System.getProperty("user.home")));
-            // Filter files
+
             FileNameExtensionFilter filter1 = new FileNameExtensionFilter("*.Images", "jpg",
                     "png");
             getFile.addChoosableFileFilter(filter1);
@@ -581,9 +592,13 @@ public class PlaceManagement implements ActionListener{
     });
   
   }
-  
+
+  /**
+    show delete place page
+    @param placeid, for which place
+  **/
   public void deletePlacePage(int  placeId){
-    // commentsService.deleteComment(commentId, user);
+
     int result = JOptionPane.showConfirmDialog(frame,"Are you sure you want to delete this place? This cannot be undone.", "Delete Place",
                JOptionPane.YES_NO_OPTION,
                JOptionPane.QUESTION_MESSAGE);

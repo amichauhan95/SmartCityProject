@@ -1,3 +1,13 @@
+/**
+ * Team Member(s) working on this class: Ami Chauhan, Melih Kartal, Dylan Moran
+ * Project: Smart City
+ * Author: Ami Chauhan
+ *
+ * Description:
+ * This class displays a list of schools and allows users to filter and view middle schools, high schools,
+ * and universities. It includes buttons to switch between different types of schools and dynamically updates
+ * the displayed list based on the selected option. The "Back" button returns users to the education window.
+ */
 package gov.smartCityGUI.education.gui;
 
 import java.awt.*;

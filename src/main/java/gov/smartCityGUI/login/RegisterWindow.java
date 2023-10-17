@@ -1,11 +1,12 @@
 package gov.smartCityGUI.login;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/19/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/19/2023
+  * Description: This class creates the registration window where the user will enter their information and register
+  * in the system. They will be provided their user ID upon successful registration and then moved to the login window.
+**/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -32,9 +33,9 @@ public class RegisterWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * The default constructor is used to build the window and add all UI Components
-  */
+  /**
+    * The default constructor is used to build the window and add all UI Components
+  **/
   public RegisterWindow(){
     createFrame();
     createTextFields();
@@ -44,18 +45,18 @@ public class RegisterWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to build the frame for the window
-  */
+  /**
+    * This method is used to build the frame for the window
+  **/
   public void createFrame(){
     frame = Gui.formFrame("Register");
   }
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create and position the text fields within the frame
-  */
+  /**
+    * This method is used to create and position the text fields within the frame
+  **/
   public void createTextFields(){
 
     //First name text field
@@ -86,9 +87,9 @@ public class RegisterWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create and position labels within the frame
-  */
+  /**
+    * This method is used to create and position labels within the frame
+  **/
   public void createLabels(){
 
     //First name label
@@ -124,9 +125,9 @@ public class RegisterWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create and position buttons within the frame, also adding action listeners
-  */
+  /**
+    * This method is used to create and position buttons within the frame, also adding action listeners
+  **/
   public void createButtons(){
 
     //Register button
@@ -148,34 +149,34 @@ public class RegisterWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to perform actions when buttons are pressed
-  */
-  public void actionPerformed(ActionEvent e){
+  /**
+    * This method is used to perform actions when buttons are pressed
+  **/
+	public void actionPerformed(ActionEvent e){
 
-    //If register button is pressed
-    if(e.getSource() == button){
-      String firstName = firstNameText.getText();
-      String lastName = lastNameText.getText();
-      String email = emailText.getText();
-      String phone = phoneText.getText();
-      String role = adminText.getText();
-
-      if(SmartCity.register(firstName, lastName, email, phone, role)){
-        frame.dispose();
-        LoginWindow login = new LoginWindow();
-      } else {
-        JOptionPane.showMessageDialog(null,
-                                      "Requirements:\nFirst and Last Name must be longer than 3 characters.\nEmail: x@xxx.domain\nPhone Number: xxxxxxx (7-10 digits).",
-                                      "Error Logging In",
-                                      JOptionPane.WARNING_MESSAGE);
-      }
-    }
-
-    //If back button is pressed
-    if(e.getSource() == backButton){
-      frame.dispose();
-      LoginScene back = new LoginScene();
-    }
-  }
-}
+    	//If register button is pressed
+    	if(e.getSource() == button){
+	      	String firstName = firstNameText.getText();
+	      	String lastName = lastNameText.getText();
+	      	String email = emailText.getText();
+	      	String phone = phoneText.getText();
+	      	String role = adminText.getText();
+	
+	      	if(SmartCity.register(firstName, lastName, email, phone, role)){
+		        frame.dispose();
+		        LoginWindow login = new LoginWindow();
+	      	} else {
+	        	JOptionPane.showMessageDialog(null,
+	                                      "Requirements:\nFirst and Last Name must be longer than 3 characters.\nEmail: x@xxx.domain\nPhone Number: xxxxxxx (7-10 digits).",
+	                                      "Error Logging In",
+	                                      JOptionPane.WARNING_MESSAGE);
+	      	}
+	    }
+	
+   		//If back button is pressed
+		if(e.getSource() == backButton){
+	      frame.dispose();
+	      LoginScene back = new LoginScene();
+    	} // End handle
+  	} // End actionPerformed() method
+} // End class

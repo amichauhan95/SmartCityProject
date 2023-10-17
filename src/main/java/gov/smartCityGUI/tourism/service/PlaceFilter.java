@@ -17,7 +17,11 @@ public class PlaceFilter{
   private PlaceRepo placeRepo = new PlaceRepo();
 
   /* Handle Sorting service */
-  
+
+  /**
+    Sort the place by name algorithm
+    @return list, 2D array contains place info: {Imagepath, placeInfo, placeId}
+  **/
   public String[][] sortByDefault(){
     List<Place> places = placeRepo.getPlaceList();
 
@@ -33,7 +37,11 @@ public class PlaceFilter{
     }
     return list;
   }  
-  
+
+  /**
+    Sort the place by rate in decreasing order
+    @return list, 2D array contains place info: {Imagepath, placeInfo, placeId}
+  **/
   public String[][] sortByRate(){
     List<Place> places = placeRepo.getPlaceList();
 
@@ -50,6 +58,10 @@ public class PlaceFilter{
     return list;
   }
 
+  /**
+    Sort the place by number of reviews in decreasing order
+    @return list, 2D array contains place info: {Imagepath, placeInfo, placeId}
+  **/
   public String[][] sortByReviews(){
    
     List<Place> places = placeRepo.getPlaceList();
@@ -67,6 +79,10 @@ public class PlaceFilter{
     return list;
   }
 
+  /**
+    Search a place by given keyword
+    @return list, 2D array contains place info: {Imagepath, placeInfo, placeId}
+  **/
   public String[][] searchKeyword(String keyword){
    
     List<Place> places = placeRepo.searchKeyword(keyword);
@@ -82,6 +98,12 @@ public class PlaceFilter{
     return list;
   }
 
+  /**
+    Sort the place by diff algorithm
+    @param o, is the object array that contains commentId
+    option, {1,2,3} triggers diff sorting algorithm {name, rate, reviews}
+    @return list, 2D array contains place info: {Imagepath, placeInfo, placeId}
+  **/
   public String[][] sortAlgo(int option, String keyword){
 
     List<Place> places;

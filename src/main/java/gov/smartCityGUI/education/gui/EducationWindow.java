@@ -1,3 +1,9 @@
+/**
+  * Team Member(s) working on this class: Ami Chauhan, Melih Kartal, Dylan Moran
+  * Project: Smart City
+  * @author: Ami Chauhan
+**/
+
 package gov.smartCityGUI.education.gui;
 
 import java.awt.*;
@@ -12,38 +18,46 @@ import gov.smartCityGUI.utilities.*;
 
 public class EducationWindow implements ActionListener {
 
-  User user;
-  EducationSystem system;
-  // Main Frame
-  JFrame frame;
-  JLabel label1;
-  JLabel label2;
-  JLabel label3;
-  JButton backButton;
-  JButton button1;
-  JButton button4;
-  JButton button5;
-  JButton button6;
-  JButton button7;
+	//Resources
+  	User user;
+  	EducationSystem system;
+	
+  	// Main Frame
+  	JFrame frame;
+  	JLabel label1;
+  	JLabel label2;
+  	JLabel label3;
+  	JButton backButton;
+  	JButton viewSchoolsButton;
+  	JButton enrollButton;
+  	JButton sPortalButton;
+  	JButton tPortalButton;
+  	JButton dPortalButton;
 
-  // Input Frame
-  JFrame inputFrame;
-  JLabel prompt;
-  JTextField input;
-  JButton enterButton;
+ 	// Input Frame
+  	JFrame inputFrame;
+  	JLabel prompt;
+  	JTextField input;
+  	JButton enterButton;
 
-  public EducationWindow(User user) {
-    this.system = new EducationSystem(this.user);
-    this.user = user;
+	// ***********************************************************************//
 
-    createFrames();
-    createButtons();
-  }
+  	public EducationWindow(User user) {
+	    this.system = new EducationSystem(this.user);
+	    this.user = user;
+	
+	    createFrames();
+	    createButtons();
+  	}
+
+	// ***********************************************************************//
 
 
-  public void createFrames() {
-    frame = Gui.bigFrame("Education System");
-  }
+  	public void createFrames() {
+    	frame = Gui.bigFrame("Education System");
+  	}
+
+	// ***********************************************************************//
 
   public void createButtons() {
 
@@ -51,33 +65,38 @@ public class EducationWindow implements ActionListener {
     backButton.addActionListener(this);
     frame.add(backButton);
 
-    button1 = Gui.genericButton("View Schools");
-    button1.addActionListener(this);
-    button1.setBounds(120, 90, 175, 35);
-    frame.add(button1);
+    viewSchoolsButton = Gui.genericButton("View Schools");
+    viewSchoolsButton.addActionListener(this);
+    viewSchoolsButton.setBounds(120, 90, 175, 35);
+    frame.add(viewSchoolsButton);
 
-    button4 = Gui.genericButton("Enroll to Schools");
-    button4.addActionListener(this);
-    button4.setBounds(360, 190, 175, 35);
-    frame.add(button4);
+    enrollButton = Gui.genericButton("Enroll to Schools");
+    enrollButton.addActionListener(this);
+    enrollButton.setBounds(360, 190, 175, 35);
+    frame.add(enrollButton);
 
-    button5 = Gui.genericButton("Students Portal");
-    button5.addActionListener(this);
-    button5.setBounds(360, 90, 175, 35);
-    frame.add(button5);
+    sPortalButton = Gui.genericButton("Students Portal");
+    sPortalButton.addActionListener(this);
+    sPortalButton.setBounds(360, 90, 175, 35);
+    frame.add(sPortalButton);
 
-    button6 = Gui.genericButton("Teachers Portal");
-    button6.addActionListener(this);
-    button6.setBounds(120, 190, 175, 35);
-    frame.add(button6);
+    tPortalButton = Gui.genericButton("Teachers Portal");
+    tPortalButton.addActionListener(this);
+    tPortalButton.setBounds(120, 190, 175, 35);
+    frame.add(tPortalButton);
     
-    button7 = Gui.genericButton("Directors Portal");
-    button7.addActionListener(this);
-    button7.setBounds(250, 300, 175, 35);
-    frame.add(button7);
+    dPortalButton = Gui.genericButton("Directors Portal");
+    dPortalButton.addActionListener(this);
+    dPortalButton.setBounds(250, 300, 175, 35);
+    frame.add(dPortalButton);
 
   }
 
+	// ***********************************************************************//
+
+	/**
+ 	  * This method is used to handle button clicks
+	**/
   	public void actionPerformed(ActionEvent e) {
 
 		//Back to menu
@@ -87,33 +106,38 @@ public class EducationWindow implements ActionListener {
 	    }
 
 		//View all Schools
-	    if (e.getSource() == button1) {
+	    if (e.getSource() == viewSchoolsButton) {
 	      	frame.dispose();
+			@SuppressWarnings("unused")
 	      	ViewAllSchools view = new ViewAllSchools(this.user, this.system);
 	    }
 	
-		  //Student portal
-	    if(e.getSource() == button5){
+		//Student portal
+	    if(e.getSource() == sPortalButton){
 			frame.dispose();
+			@SuppressWarnings("unused")
 			StudentPortal portal = new StudentPortal(this.user);
 	    }
-		  //Enter credentials
-	    if(e.getSource() == button4){
-			 frame.dispose();
-			 CredentialsWindow cred = new CredentialsWindow(this.user, this.system);
+		
+		//Enter credentials
+		if(e.getSource() == enrollButton){
+			frame.dispose();
+			@SuppressWarnings("unused")
+			CredentialsWindow cred = new CredentialsWindow(this.user, this.system);
 	    }
 
 		//Teachers Portal
-	    if (e.getSource() == button6) {
+	    if (e.getSource() == tPortalButton) {
 	      	frame.dispose();
+			@SuppressWarnings("unused")
 	      	TeachersPortal portal = new TeachersPortal(this.user, this.system);
 	    }
 
 		//Directors Portal
-	    if(e.getSource() == button7){
+	    if(e.getSource() == dPortalButton){
 	    	frame.dispose();
+			@SuppressWarnings("unused")
 	    	DirectorsPortal portal = new DirectorsPortal(this.user, this.system);
 	    }
-
-  	}
-}
+  	} // End actionPerformed() method
+} // End class

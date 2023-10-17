@@ -1,6 +1,10 @@
-//Ami Chauhan, Mel Kartal
-package gov.smartCityGUI.education.gui;
+/**
+  * Team Member(s) working on this class: Ami Chauhan, Melih Kartal
+  * Project: Smart City
+  * @author: Ami Chauhan
+**/
 
+package gov.smartCityGUI.education.gui;
 
 import gov.smartCityGUI.education.models.*;
 import gov.smartCityGUI.education.controller.*;
@@ -33,16 +37,16 @@ public class DirectorsPortal implements ActionListener {
 
   // Main Frame
   JFrame frame;
-  
+
   JLabel label1;
-  
+
   JButton backButton;
   JButton middleSchoolButton;
   JButton highSchoolButton;
   JButton universityButton;
   JButton studentsButton;
   JButton teachersButton;
-  
+
   JPanel schoolPanel = new JPanel();
   JScrollPane scroll = new JScrollPane(schoolPanel);
   // Input Frame
@@ -50,13 +54,11 @@ public class DirectorsPortal implements ActionListener {
   JLabel prompt;
   JTextField input;
   JButton enterButton;
-  HashMap<String, String> data =new HashMap<String, String>(){
+  HashMap<String, String> data = new HashMap<String, String>() {
     {
       put("No Data Available", "No Data Available");
     }
   };
-  
- 
 
   // ***********************************************************************//
 
@@ -74,7 +76,6 @@ public class DirectorsPortal implements ActionListener {
 
   public void createLabels() {
 
-    
     JLabel label1 = new JLabel("List of Schools & Executives");
     label1.setBounds(380, 35, 250, 40);
     label1.setForeground(new Color(230, 230, 230));
@@ -84,7 +85,7 @@ public class DirectorsPortal implements ActionListener {
   // ***********************************************************************//
 
   public void createFrames() {
-    frame = Gui.bigFrame("View Schools");
+    frame = Gui.bigFrame("Directors Portal");
   }
 
   // ***********************************************************************//
@@ -132,24 +133,23 @@ public class DirectorsPortal implements ActionListener {
     JLabel space;
     int count = 0;
 
-
     for (Map.Entry<String, String> entry : allSchools.entrySet()) {
-      name = Gui.scrollLabel(" School: " +  entry.getKey() + " \n");
-      principal =  Gui.scrollLabel(" Principal: " +  entry.getValue() + " \n");
+      name = Gui.scrollLabel(" School: " + entry.getKey() + " \n");
+      principal = Gui.scrollLabel(" Principal: " + entry.getValue() + " \n");
       space = Gui.scrollLabel("                      ");
       schoolPanel.add(name);
       schoolPanel.add(principal);
       schoolPanel.add(space);
       count++;
     }
-    
+
     schoolPanel.setPreferredSize(new Dimension(350, count * 100));
     scroll.setBounds(300, 75, 400, 300);
     scroll.setBorder(BorderFactory.createLineBorder(new Color(100, 100, 100)));
     frame.add(scroll);
   }
 
-   public void createScrollPane( ArrayList<String> allStudents, String type) {
+  public void createScrollPane(ArrayList<String> allStudents, String type) {
 
     schoolPanel.setBackground(new Color(100, 100, 100));
     schoolPanel.setLayout(new BoxLayout(schoolPanel, BoxLayout.Y_AXIS));
@@ -158,52 +158,50 @@ public class DirectorsPortal implements ActionListener {
     JLabel ageLabel;
     JLabel gpaLabel;
     JLabel schoolLabel;
-     JLabel emailLabel;
+    JLabel emailLabel;
     JLabel space;
     int count = 0;
-     if(type.equals("student"))
-     {
-     for (String student : allStudents) {
-                  StringTokenizer token = new StringTokenizer(student, ",");
-                    String id = token.nextToken();
-                    String name = token.nextToken();
-                    String lastName = token.nextToken();
-                    String age = token.nextToken();
-                    String GPA = token.nextToken();
-                    String school = token.nextToken();
-                    firstName = Gui.scrollLabel(" Name: " + name + " "+lastName+" \n");
-                    ageLabel =  Gui.scrollLabel(" Age: " + age + " \n");
-                    gpaLabel = Gui.scrollLabel(" GPA: " + GPA + " \n");
-                    schoolLabel = Gui.scrollLabel(" School: " + school + " \n");
-                    space = Gui.scrollLabel("                      ");
-                    schoolPanel.add(firstName);
-                    schoolPanel.add(ageLabel);
-                    schoolPanel.add(gpaLabel);
-                    schoolPanel.add(schoolLabel);
-                    schoolPanel.add(space);
-              count++;
-           }
-     }
-     if(type.equals("teacher"))
-     {
-       for (String student : allStudents) {
-                  StringTokenizer token = new StringTokenizer(student, ",");
-                    String id = token.nextToken();
-                    String name = token.nextToken();
-                    String lastName = token.nextToken();
-                    String email = token.nextToken();
-                    String school = token.nextToken();
-                    firstName = Gui.scrollLabel(" Name: " + name + " "+lastName+" \n");
-                    emailLabel =  Gui.scrollLabel(" Email: " + email + " \n");
-                    schoolLabel = Gui.scrollLabel(" School: " + school + " \n");
-                    space = Gui.scrollLabel("                      ");
-                    schoolPanel.add(firstName);
-                    schoolPanel.add(emailLabel);
-                    schoolPanel.add(schoolLabel);
-                    schoolPanel.add(space);
-              count++;
-           }
-     }
+    if (type.equals("student")) {
+      for (String student : allStudents) {
+        StringTokenizer token = new StringTokenizer(student, ",");
+        String id = token.nextToken();
+        String name = token.nextToken();
+        String lastName = token.nextToken();
+        String age = token.nextToken();
+        String GPA = token.nextToken();
+        String school = token.nextToken();
+        firstName = Gui.scrollLabel(" Name: " + name + " " + lastName + " \n");
+        ageLabel = Gui.scrollLabel(" Age: " + age + " \n");
+        gpaLabel = Gui.scrollLabel(" GPA: " + GPA + " \n");
+        schoolLabel = Gui.scrollLabel(" School: " + school + " \n");
+        space = Gui.scrollLabel("                      ");
+        schoolPanel.add(firstName);
+        schoolPanel.add(ageLabel);
+        schoolPanel.add(gpaLabel);
+        schoolPanel.add(schoolLabel);
+        schoolPanel.add(space);
+        count++;
+      }
+    }
+    if (type.equals("teacher")) {
+      for (String student : allStudents) {
+        StringTokenizer token = new StringTokenizer(student, ",");
+        String id = token.nextToken();
+        String name = token.nextToken();
+        String lastName = token.nextToken();
+        String email = token.nextToken();
+        String school = token.nextToken();
+        firstName = Gui.scrollLabel(" Name: " + name + " " + lastName + " \n");
+        emailLabel = Gui.scrollLabel(" Email: " + email + " \n");
+        schoolLabel = Gui.scrollLabel(" School: " + school + " \n");
+        space = Gui.scrollLabel("                      ");
+        schoolPanel.add(firstName);
+        schoolPanel.add(emailLabel);
+        schoolPanel.add(schoolLabel);
+        schoolPanel.add(space);
+        count++;
+      }
+    }
     schoolPanel.setPreferredSize(new Dimension(350, count * 100));
     scroll.setBounds(300, 75, 400, 300);
     scroll.setBorder(BorderFactory.createLineBorder(new Color(100, 100, 100)));
@@ -242,20 +240,20 @@ public class DirectorsPortal implements ActionListener {
       schoolPanel.repaint();
     }
 
-    if (e.getSource() ==  studentsButton) {
+    if (e.getSource() == studentsButton) {
 
       schoolPanel.removeAll();
       ArrayList<String> allStudents = system.s1.viewStudents();
-      createScrollPane(allStudents,"student");
+      createScrollPane(allStudents, "student");
       schoolPanel.revalidate();
       schoolPanel.repaint();
     }
 
-    if (e.getSource() ==  teachersButton) {
+    if (e.getSource() == teachersButton) {
 
       schoolPanel.removeAll();
-       ArrayList<String> allTeachers = system.s1.viewTeachers();
-      createScrollPane(allTeachers,"teacher");
+      ArrayList<String> allTeachers = system.s1.viewTeachers();
+      createScrollPane(allTeachers, "teacher");
       schoolPanel.revalidate();
       schoolPanel.repaint();
     }

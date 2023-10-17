@@ -4,13 +4,12 @@ Project: Smart City
 @date 9/13/2023
 I recieved help from: N/A
 */
-// package gov.smartcityteam2.Tourism.repository;
 
-// import gov.smartcityteam2.Tourism.model.*;
+
 package gov.smartCityGUI.tourism.repository;
 import java.util.List;
 import java.util.ArrayList;
-import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.io.FileNotFoundException; 
 import java.io.FileReader;
 import java.io.IOException;
 import org.json.simple.JSONArray;
@@ -21,11 +20,12 @@ import java.io.FileWriter;
 import gov.smartCityGUI.admin.models.User;
 import gov.smartCityGUI.tourism.model.*;
 
-// import gov.smartcityteam2.User;
 
 public class PlaceRepo{
   private static List<Place> places = new ArrayList<Place>();
   private static UserCommentsRepo commentRepo = new UserCommentsRepo();
+
+  // a path where place data stored
   final static String placeData = "src/main/java/gov/smartCityGUI/tourism/static/place.json";
   final static String commentData = "src/main/java/gov/smartCityGUI/tourism/static/userComments.json";
 
@@ -54,6 +54,11 @@ public class PlaceRepo{
     }
   }
 
+  /**
+    Search a place by given place id
+    @param placeId 
+    @return placeName 
+  **/
   public String findPlaceNameById(int placeId){
     for(Place p: places){
       if(p.getPlaceId() == placeId) return p.getName();
@@ -61,6 +66,11 @@ public class PlaceRepo{
     return "";
   }
 
+  /**
+    Search a place image name by given place name
+    @param placeName 
+    @return image name 
+  **/
   public String findImageByPlaceName(String placeName){
     for(Place p : places){
 
@@ -68,14 +78,25 @@ public class PlaceRepo{
     }
     return "";
   }
-  
+
+  /**
+    Search a place image name by given place id
+    @param place id
+    @return image name 
+  **/
   public String findImageByPlaceId(int placeId){
     for(Place p : places){
       if(p.getPlaceId() == placeId) return p.getImage();
     }
     return "";
   }
+  
   /* User Comments up-to-date */
+  /**
+    update-to-date a comment in comment repo
+    @param c, a comments need to be CURD in comment repo
+    option, for which CURD
+  **/
   public static void upToDateComments(UserComments c, int option){
     switch(option){
       /* Add new a Comment */
@@ -125,6 +146,11 @@ public class PlaceRepo{
   }
   
   // Place
+  /**
+    Retrieve place object by given place id
+    @param placeId
+    @return place object
+  **/
   public Place getPlaceById(int placeId){
     for(Place target: places){
       if(target.getPlaceId() == placeId){
@@ -134,10 +160,17 @@ public class PlaceRepo{
     return null;
   }
 
+  /**
+    Retrieve a list of place object
+  **/
   public List<Place> getPlaceList (){
     return places;
   }
 
+  /**
+    increase review number by one
+    @param placeid, for which place 
+  **/
   public void increaseReview(int placeId){
     for(Place target: places){
       if(target.getPlaceId() == placeId){
@@ -146,6 +179,10 @@ public class PlaceRepo{
     }
   }
 
+  /**
+    increase review number by one
+    @param placeid, for which place 
+  **/
   public void updateRate(int placeId, double rate){
     for(Place target: places){
       if(target.getPlaceId() == placeId){
@@ -183,6 +220,7 @@ public class PlaceRepo{
     if(keyword.equals("")) return places;
     List<Place> data = new ArrayList<Place>();
     for(Place p : places){
+      keyword = keyword.toLowerCase();
       String temp = p.getName().toLowerCase();
       if(temp.contains(keyword)) data.add(p);
       System.out.println(String.format("Original: %s, keyword: %s, Value: %s", temp, keyword, String.valueOf(temp.contains(keyword))));

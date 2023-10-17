@@ -1,11 +1,11 @@
 package gov.smartCityGUI.utilities;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/19/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/19/2023
+  * Description: This class contains shortcuts for creating GUI components. Helps to lessen repeated code, resulting in less lines of code overall.
+**/
 
 import java.awt.*;
 import java.awt.event.*;

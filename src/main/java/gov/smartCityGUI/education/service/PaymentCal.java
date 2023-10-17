@@ -1,3 +1,8 @@
+/**
+  * Team Member(s) working on this class: Melih Kartal, Ami Chauhan
+  * Project: Smart City
+  * @author: Melih Kartal
+**/
 package gov.smartCityGUI.education.service;
 
 import java.io.FileWriter;

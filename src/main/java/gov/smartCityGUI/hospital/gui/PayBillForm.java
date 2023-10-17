@@ -62,6 +62,11 @@ public class PayBillForm implements ActionListener {
 
   BankAccount account = new BankAccount();
 
+  /**
+    * public PayBillForm(User user, HospitalSystem system) does ...
+    * @param User user represents ...
+    * @param HospitalSystem system represents ...
+  **/
   public PayBillForm(User user, HospitalSystem system) {
     this.user = user;
     this.system = system;
@@ -69,6 +74,7 @@ public class PayBillForm implements ActionListener {
     inputFrame();
   }
 
+  
   public void createLabels() {
 
     JLabel label1 = new JLabel("Pay Bill");

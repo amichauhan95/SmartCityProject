@@ -1,21 +1,43 @@
 package gov.smartCityGUI.ems.pages;
 
+/**
+  * Team Member(s) working on this class: Keith Austin
+  * Project: Smart City
+  * @author: Keith Austin
+  * I received help from everyone on my team
+**/
+
 import java.awt.event.*;
 import java.awt.*;
 import java.io.*;
 import javax.swing.*;
-
+import gov.smartCityGUI.ems.pages.*;
 import gov.smartCityGUI.ems.util.*;
+import gov.smartCityGUI.admin.models.*;
 
 public class Form{
+  User user;
 
+  /**
+    * public Form(User user) initializes the current user and calls a method that opens the career form fill out
+    * @param User user represents the current instance of the user
+  **/
+  public Form(User user) {
+    this.user = user;
+    careerForm();
+  }
+
+  /**
+    * public void careerForm() displays the form fill out for the user
+  **/
   public void careerForm(){
 
-    JFrame f = new JFrame("Career Form");
+    JFrame f = new JFrame("EMS | Career Form");
   
-    f.setSize(500, 400);
+    f.setSize(500, 450);
     f.setLocation(300, 200);
     f.setLayout(new FlowLayout());
+	f.setResizable(false);
     
     f.setVisible(true);
     JPanel panel = new JPanel();
@@ -34,6 +56,7 @@ public class Form{
       new JLabel("Email: "),
       new JLabel("Phone: "),
       new JLabel("Date of Birth: "),
+      new JLabel("Company: "),
       new JLabel("Position: "),
       new JLabel("Cover Letter: "),
     };
@@ -43,8 +66,9 @@ public class Form{
     JTextField emailText = new JTextField(20);
     JTextField phoneText = new JTextField(20);
     JTextField dobText = new JTextField(20);
+    JTextField compText = new JTextField(20);
     JTextField positionText = new JTextField(20);
-    JTextArea letterText = new JTextArea(8, 20);
+    JTextArea letterText = new JTextArea(8, 30);
 
     JTextField[] inputList = new JTextField[]{
       firstText,
@@ -52,11 +76,12 @@ public class Form{
       emailText,
       phoneText,
       dobText,
+      compText,
       positionText
     };
+    
     dobText.setText("mm/dd/yyyy");
     letterText.setLineWrap(true);
-
 
     panel.add(title);
     panel.add(Box.createRigidArea(new Dimension(0, 12)));
@@ -87,15 +112,21 @@ public class Form{
     temp.add(labelList[4]);
     temp.add(dobText);
     panel.add(temp);
-    
+
     temp = new JPanel();
     temp.add(Box.createRigidArea(new Dimension(33, 0)));
     temp.add(labelList[5]);
+    temp.add(compText);
+    panel.add(temp);
+    
+    temp = new JPanel();
+    temp.add(Box.createRigidArea(new Dimension(31, 0)));
+    temp.add(labelList[6]);
     temp.add(positionText);
     panel.add(temp);
     
     temp = new JPanel();
-    temp.add(labelList[6]);
+    temp.add(labelList[7]);
     temp.add(letterText);
     panel.add(temp);
 
@@ -109,21 +140,42 @@ public class Form{
     f.setVisible(true);
 
     submitButton.addActionListener(new ActionListener(){
+      /**
+        * public void actionPerformed(ActionEvent e) gets each text inputted by the user and checks 
+        * @param ActionEvent e is the action performed by the user
+      **/
 			public void actionPerformed(ActionEvent e){
-        String[] form = new String[7];
+        String[] form = new String[8];
         int index = 0;
         for(JTextField temp : inputList){
           form[index] = temp.getText();
           index++;
         }
-        form[6] = letterText.getText();
+        form[7] = letterText.getText();
 
         if(FormValidation.checkCareerForm(form)){
-          /* To-do: need to call a service takes form object*/
+          try {
+            FileWriter fw = new FileWriter("src/main/java/gov/smartCityGUI/ems/data/applicants.txt", true);
+			  String[] formWrite = new String[8];
+        int indexWrite = 0;
+        for(JTextField temp : inputList){
+          formWrite[indexWrite] = temp.getText();
+          indexWrite++;
+        }
+            for (String s : formWrite) {
+              fw.write(s + ", ");
+            }
+            fw.flush();
+            fw.close();
+          } catch (Exception ex) {
+            System.out.println("An error has occurred");
+            ex.printStackTrace();
+          }
           
-          /*-------------------------------------------------*/
           JOptionPane.showMessageDialog(f,"Thank you for applying!","Alert",JOptionPane.WARNING_MESSAGE);
           f.dispose();
+			CareerPage cp = new CareerPage(user);
+			
         } else {
           JOptionPane.showMessageDialog(f,"Each section need to be filled out","Alert",JOptionPane.WARNING_MESSAGE);
         }
@@ -133,7 +185,8 @@ public class Form{
 
     exitButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-        f.dispose();
+        		f.dispose();
+				CareerPage cp = new CareerPage(user);
 			}
 		});
   

@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.repository;
 import java.util.List;
 import java.util.ArrayList;
@@ -99,7 +104,7 @@ public class UserCommentsRepo{
   }
 
   public List<List<String>> getAllCommentsByAUser(User user){
-    // return commentId, String comment, string img
+
     List<List<String>> data = new ArrayList<List<String>>();
     
     for(UserComments c: userComments){
@@ -135,6 +140,7 @@ public class UserCommentsRepo{
     }
 
     for(UserComments c : userComments){
+      keyword = keyword.toLowerCase();
       String temp = c.getComments().toLowerCase();
       if(temp.contains(keyword) && c.getUser() == user) data.add(c);
     }
@@ -214,5 +220,3 @@ public class UserCommentsRepo{
   }
   
 }
-
-// add comments: 

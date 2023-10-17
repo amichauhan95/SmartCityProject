@@ -1,4 +1,13 @@
-//Ami Chauhan, Dylan Moran, Mel Kartal
+/**
+ * Team Member(s) working on this class: Ami Chauhan, Melih Kartal
+ * Project: Smart City
+ * Author: Ami Chauhan
+ *
+ * Description:
+ * This class represents the teacher portal user interface. It provides options for teachers to navigate,
+ * including registering as a teacher, calculating paychecks, and viewing school lists. Users can click on
+ * these options to access specific functionalities.
+ */
 package gov.smartCityGUI.education.gui;
 
 import gov.smartCityGUI.menu.Menu;

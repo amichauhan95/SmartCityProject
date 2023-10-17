@@ -1,1 +1,3 @@
 AppointmentID;AppointmentDate;AppointmentDoctor;0.0;DoctorReport;DoctorReport
+I2023/09/271234;2023/09/27;5;10.0;Fever and Cough;Gave Medicine
+I2023/09/281234;2023/09/28;5;0.0;Back Pain, Cough;Medicine, Sleep and rest

@@ -1,3 +1,0 @@
-7,melih,kartal,melih.kartal@albany.edu,high school
-7,melih,kartal,melih.kartal@albany.edu,high school
-7,melih,kartal,melih.kartal@albany.edu,null school

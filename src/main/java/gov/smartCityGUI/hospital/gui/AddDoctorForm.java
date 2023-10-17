@@ -17,10 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import gov.smartCityGUI.utilities.Gui;
 import gov.smartCityGUI.admin.models.*;
-import gov.smartCityGUI.hospital.model.*;
-import gov.smartCityGUI.hospital.service.*;
 import gov.smartCityGUI.hospital.controller.*;
 
 public class AddDoctorForm implements ActionListener {
@@ -46,6 +43,11 @@ public class AddDoctorForm implements ActionListener {
   JButton button;
   JButton backButton;
 
+  /**
+    * public AddDoctorForm(User user, HospitalSystem system) does intitalizes User,System and UI
+    * @param User user represents an instance of User class
+    * @param HospitalSystem system represents an instance of HospitalSystem Class
+  **/
   public AddDoctorForm(User user, HospitalSystem system) {
     this.user = user;
     this.system = system;
@@ -55,6 +57,9 @@ public class AddDoctorForm implements ActionListener {
     createButtons();
   }
 
+  /**
+    * public void createFrame() creates main frame Add Doctor Form UI
+  **/
   public void createFrame() {
     frame = new JFrame("Add Doctor");
     frame.setSize(475, 315);
@@ -65,6 +70,9 @@ public class AddDoctorForm implements ActionListener {
     frame.setVisible(true);
   }
 
+  /**
+    * public void createTextFields() creates text fields Add Doctor Form UI
+  **/
   public void createTextFields() {
     firstNameText = new JTextField();
     firstNameText.setBounds(75, 80, 150, 25);
@@ -91,6 +99,9 @@ public class AddDoctorForm implements ActionListener {
     frame.add(doctorIDText);
   }
 
+  /**
+    * public void createLabels() creates labels Add Doctor Form UI
+  **/
   public void createLabels() {
 
     firstNameLabel = new JLabel("Doctor's First Name:");
@@ -124,6 +135,9 @@ public class AddDoctorForm implements ActionListener {
     frame.add(doctorIDLabel);
   }
 
+  /**
+    * public void createButtons() creates buttons for Add Doctor Form UI
+  **/
   public void createButtons() {
     button = new JButton("Submit");
     button.setBounds(275, 240, 100, 25);
@@ -140,14 +154,19 @@ public class AddDoctorForm implements ActionListener {
     frame.add(backButton);
   }
 
+  /**
+    * public void actionPerformed(ActionEvent e) adds doctor or go backs to the home page
+    * @param ActionEvent e represents when any action occurs in Add Doctor form ex, button clicks
+  **/
   public void actionPerformed(ActionEvent e) {
 
     // If back button is pressed
     if (e.getSource() == backButton) {
       frame.dispose();
-      HospitalWindow hospital = new HospitalWindow(this.user);
+      new HospitalWindow(this.user);
     }
 
+    // If Submit button is pressed
     if (e.getSource() == button) {
       String firstName = firstNameText.getText();
       String lastName = lastNameText.getText();
@@ -156,14 +175,16 @@ public class AddDoctorForm implements ActionListener {
       String fee = consultingFeeText.getText();
       String id = doctorIDText.getText();
 
+       // If doctor is already present show alert else add doctor
       if (!system.d1.doctorPresent(id)) {
 
         if (system.d1.addDoctor(id, firstName, lastName, phone, email, Double.parseDouble(fee))) {
-          // alert added successfully
+          
           frame.dispose();
-          HospitalWindow hospital = new HospitalWindow(this.user);
+          new HospitalWindow(this.user);
 
         } else {
+         
           JOptionPane.showMessageDialog(null, "Doctor ID is taken", "Invalid", JOptionPane.WARNING_MESSAGE);
           doctorIDText.setText("");
         }

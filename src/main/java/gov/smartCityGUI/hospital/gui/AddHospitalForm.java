@@ -44,6 +44,11 @@ public class AddHospitalForm implements ActionListener {
   JButton button;
   JButton backButton;
 
+  /**
+    * public void AddHospitalForm does ...
+    * @param User user represents ...
+    * @param HospitalSystem system represents ...
+  **/
   public AddHospitalForm(User user, HospitalSystem system) {
     this.user = user;
     this.system = system;
@@ -53,6 +58,9 @@ public class AddHospitalForm implements ActionListener {
     createButtons();
   }
 
+  /**
+    * public void createFrame() does ...
+  **/
   public void createFrame() {
     frame = new JFrame("Add Hospital");
     frame.setSize(475, 315);
@@ -63,6 +71,9 @@ public class AddHospitalForm implements ActionListener {
     frame.setVisible(true);
   }
 
+  /**
+    * public void createTextFields() does ...
+  **/
   public void createTextFields() {
     nameText = new JTextField();
     nameText.setBounds(75, 80, 150, 25);
@@ -85,6 +96,9 @@ public class AddHospitalForm implements ActionListener {
     frame.add(authCodeText);
   }
 
+  /**
+    * public void createLabels() does ...
+  **/
   public void createLabels() {
 
     JLabel title = Gui.whiteLabel("Add Hospital");
@@ -118,6 +132,9 @@ public class AddHospitalForm implements ActionListener {
     frame.add(authCodeLabel);
   }
 
+  /**
+    * public void createButtons does ...
+  **/
   public void createButtons() {
     button = new JButton("Confirm");
     button.setBounds(275, 250, 100, 25);
@@ -134,6 +151,10 @@ public class AddHospitalForm implements ActionListener {
     frame.add(backButton);
   }
 
+  /**
+    * public void actionPerformed(ActionEvent e) does ...
+    * @param ActionEvent e represents ...
+  **/
   public void actionPerformed(ActionEvent e) {
 
     // If confirm button is pressed

@@ -1,3 +1,9 @@
+/*
+@author Ami Chauhan
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.hospital.service;
 
 import java.io.*;
@@ -6,10 +12,7 @@ import javax.swing.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import gov.smartCityGUI.admin.models.*;
 import gov.smartCityGUI.hospital.model.*;
-import gov.smartCityGUI.hospital.service.*;
-import gov.smartCityGUI.hospital.controller.*;
 
 public class BookAppointment {
   public String div = "------------------------------------------";
@@ -28,7 +31,7 @@ public class BookAppointment {
   String insuranceID;
 
 	//***********************************************************************//
-
+ // function to read list and add all apointments into the list
   public void addAppointment() {
 
     patient.clear();
@@ -50,7 +53,7 @@ public class BookAppointment {
   }
 
 	//***********************************************************************//
-
+  // function to add a new appointment into the file
   public boolean addAppointment(String userID, String firstName, String lastName, String email, String phone, String bday, String address, String insuranceID, String appointmentTime, String symptoms) {
 
     if (checkAvailibility(appointmentTime)) {
@@ -81,7 +84,7 @@ public class BookAppointment {
   }
 
 	//***********************************************************************//
-
+  //method to print available appointments for console system
   public void viewAppointments(String userID) {
     addAppointment();
     for (Patient b : patient) {
@@ -106,7 +109,7 @@ public class BookAppointment {
 
 	//***********************************************************************//
 
-	  // function checks if appointment is present in the patient list
+	  // function checks if appointment is present in the patient list and returns a boolean
   public boolean getAppointment(String appointmentID, String patientFirstName, String patientLastName,
       String insuranceID) {
     addAppointment();
@@ -124,7 +127,7 @@ public class BookAppointment {
 
 	//***********************************************************************//
 
-	  // functions updates the appointment in patient list and writes the patient list
+	//functions updates the appointment status to false in patient list and writes to the patient list  
   public void updateAppointmentStatus(String appointmentID) {
 
     addAppointment();
@@ -155,7 +158,7 @@ public class BookAppointment {
   }
 
 	//***********************************************************************//
-
+  // function checks if appointment is available and returns a boolean
   public boolean checkAvailibility(String appointmentTime) {
     try {
       BufferedReader br = new BufferedReader(

@@ -1,5 +1,5 @@
-/*
-Team Member(s) working on this class: 
+/**
+Team Member(s) working on this class: Lin , Dylan
 Project: Smart City
 I recieved help from: N/A
 */

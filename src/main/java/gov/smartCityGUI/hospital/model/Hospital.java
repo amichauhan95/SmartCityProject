@@ -1,13 +1,21 @@
+/*
+@author Ami Chauhan
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.hospital.model;
 
 public class Hospital {
 
+   // Variables for all data in Hospital
   private int hospitalID;
   private String hospitalName;
   private String hospitalAddress;
   private String hospitalPhone;
   private String hospitalEmail;
 
+  // consutructor to intialize data
   public Hospital() {
     this.hospitalID = 0;
     this.hospitalName = "";
@@ -16,6 +24,7 @@ public class Hospital {
     this.hospitalEmail = "";
   }
 
+  // consutructor to intialize data
   public Hospital(int id, String name, String address, String phone, String email) {
     this.hospitalID = id;
     this.hospitalName = name;
@@ -24,6 +33,7 @@ public class Hospital {
     this.hospitalEmail = email;
   }
 
+   // Getter and Setters
   public int getHospitalID() {
     return hospitalID;
   }
@@ -64,6 +74,7 @@ public class Hospital {
     this.hospitalEmail = hospitalEmail;
   }
 
+  // funcation to display data in string
   public String toString() {
     return String.format("\n\tName: %s\n\tAddress: %s\n\tPhone: %s\n\tEmail: %s\n\n", hospitalName, hospitalAddress,
         hospitalPhone, hospitalEmail);

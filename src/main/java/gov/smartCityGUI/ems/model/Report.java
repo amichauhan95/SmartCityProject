@@ -1,147 +1,155 @@
 // /**
+//   * Team Member(s) working on this class: Keith Austin
+//   * Project: Smart City
 //   * @author: Keith Austin
+//   * I received help from everyone on my team
 // **/
 
-// package gov.smartcityteam2.EMS;
+// 
 
-// import java.io.File;
 // import java.io.FileWriter;
 // import java.io.BufferedWriter;
 // import java.io.IOException;
 // import java.time.LocalDateTime;
 // import java.time.format.DateTimeFormatter;
 // import java.util.Scanner;
-// import java.util.List;
-// import java.util.ArrayList;
 // import java.time.LocalDateTime;
-// import gov.smartcityteam2.*;
 // import java.io.FileNotFoundException;
+// import gov.smartCityGUI.admin.models.*;
 
-// // This class gets the users report information
-// public class Report implements ActionListener {
-//   private String firstName, lastName, email, phoneNumber, streetAddress, report, date, time;
-//   private int id = 0;
-  
+// public class Report {
+//   private String firstName, lastName, email, phoneNumber, streetAddress, report;
+//   public User user;
 //   Scanner sc = new Scanner(System.in);
 
-//   public int getId() {
-//     return id;
-//   }
-
-//   public void setId(int id) {
-//     this.id = id;
-//     id++;
-//   }
-
+//   /**
+//     * public String getFirstName() returns the first name of the user
+//     * @return the first name of the user
+//   **/
 //   public String getFirstName() {
 //     return firstName;
 //   }
-  
+
+//   /**
+//     * public void setFirstName(String firstName) sets the current instance of firstName to the parameter instance
+//     * @param String firstName is the first name created by the user
+//   **/
 //   public void setFirstName(String firstName) {
 //     this.firstName = firstName;
 //   }
 
+//   /**
+//     * public String getLastName() returns the last name of the user
+//     * @return the last name of the user
+//   **/
 //   public String getLastName() {
 //     return lastName;
 //   }
-  
+
+//   /**
+//     * public void setLastName(String lastName) sets the current instance of lastName to the parameter instance
+//     * @param String lastName is the last name created by the user
+//   **/
 //   public void setLastName(String lastName) {
-//     this.lastName = lastName;
+//     this.lastName = firstName;
 //   }
 
+//   /**
+//     * public String getEmail() returns the email of the user
+//     * @return the email of the user
+//   **/
 //   public String getEmail() {
 //     return email;
 //   }
 
+//   /**
+//     * public void setEmail(String email) sets the current instance of email to the parameter instance
+//     * @param String email is the email created by the user
+//   **/
 //   public void setEmail(String email) {
 //     this.email = email;
 //   }
-  
+
+//   /**
+//     * public String getPhoneNumber() returns the phone number of the user
+//     * @return the phone number of the user
+//   **/
 //   public String getPhoneNumber() {
 //     return phoneNumber;
 //   }
 
+//   /**
+//     * public void setPhoneNumber(String phoneNumber) sets the current instance of phoneNumber to the parameter instance
+//     * @param String phoneNumber is the phone number created by the user
+//   **/
 //   public void setPhoneNumber(String phoneNumber) {
 //     this.phoneNumber = phoneNumber;
 //   }
 
+//   /**
+//     * public String getStreetAddress() returns the street address of the user
+//     * @return the street address of the user
+//   **/
 //   public String getStreetAddress() {
 //     return streetAddress;
 //   }
 
+//   /**
+//     * public void setStreetAddress(String streetAddress) the current instance of streetAddress to the parameter instance
+//     * @param String streetAddress is the street address created by the user
+//   **/
 //   public void setStreetAddress(String streetAddress) {
 //     this.streetAddress = streetAddress;
 //   }
 
-//   public String getDate() {
-//     return date;
-//   }
-
-//   public void setDate(String date) {
-//     LocalDateTime x = LocalDateTime.now();
-//     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
-//     String formattedDate = x.format(dateFormatter);
-//     this.date = formattedDate;
-//   }
-
-//   public String getTime() {
-//     return time;
-//   }
-
-//   public void setTime(String time) {
-//     LocalDateTime x = LocalDateTime.now();
-//     DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//     String formattedTime = x.format(timeFormatter);
-//     this.time = formattedTime;
-//   }
-
+//   /**
+//     * public String getReport() returns the report created by the user
+//     * @return the report from the user
+//   **/
 //   public String getReport() {
 //     return report;
 //   }
 
-//   public void setReport (String report) {
-//     this.report = report;
-//   }
-  
 //   /**
-//     *  This method acts a a default constructor to initialize variables that  
-//     *  we have not yet set
+//     * public void setReport(String report) sets the current instance of report to the parameter instance
+//     * @param report is the report created by the user
 //   **/
-//   public Report(int id, String firstName, String lastName, String email, String phoneNumber, String streetAddress, String report, String date, String time) {
-//     this.id = id;
-//     this.firstName = firstName;
-//     this.lastName = lastName;
-//     this.email = email;
-//     this.phoneNumber = phoneNumber;
-//     this.streetAddress = streetAddress;
+//   public void setReport(String report) {
 //     this.report = report;
-//     this.date = date;
-//     this.time = time;
 //   }
-
-//   Report r = new Report(0, " ", " ", " ", " ", " ", " ", " ", " ");
+  
+//   LocalDateTime x = LocalDateTime.now();
+//   DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+//   DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//   String formattedDate = x.format(dateFormatter);
+//   String formattedTime = x.format(timeFormatter);
+//   String date = formattedDate;
+//   String time = formattedTime;
   
 //   /**
-//     * This method writes the user's report to the txt file
+//     * public void writeToFile() writes the users data to the file
+//     * @throws IOException if the data isn't written to the file successfully
 //   **/
 //   public void writeToFile() throws IOException {
 //     try {
-//       FileWriter fw = new FileWriter("src/main/java/gov/smartcityteam2/EMS/Static/reports.txt");
+//       FileWriter fw = new FileWriter("src/main/java/gov/smartcityteam2/EMS/data/reports.txt", true);
 //       BufferedWriter bw = new BufferedWriter(fw);
-//       bw.write(r.toString());
+//       bw.write(toString());
+//       bw.flush();
 //       bw.close();
 //     } catch (IOException e) {
 //       System.out.println("An error has occurred");
 //       e.printStackTrace();
 //     }
 //   }
-
+  
 //   /**
-//     * This method reads all reports from the txt file
+//     * public void readFile() reads the user's data from the file
+//     * @throws FileNotFoundException if the file is not found
 //   **/
 //   public void readFile() throws FileNotFoundException {
 //     try {
-//       Scanner sc = new Scanner("src/main/java/gov/smartcityteam2/EMS/Static/reports.txt");
+//       Scanner sc = new Scanner("src/main/java/gov/smartcityteam2/EMS/data/reports.txt");
 //       while (sc.hasNextLine()) {
 //         String line = sc.nextLine();
 //         System.out.println(line);
@@ -153,19 +161,20 @@
 //   }
   
 //   /**
-//     * This method prompts the user to file a report
+//     * public void createReport() prompts the user to enter in data related to their report and sets the attributes
+//     * @throws IOException if the data isn't written to the file successfully
 //   **/
-//   public void createReport() {
+//   public void createReport() throws IOException {
 //     System.out.print("First Name: ");
-//     String firstName = sc.next();
+//     firstName = sc.next();
 //     System.out.print("Last Name: ");
-//     String lastName = sc.next();
-//     System.out.print("Phone Number: ");
-//     String phoneNumber = sc.next();
+//     lastName = sc.next();
 //     System.out.print("Email: ");
-//     String email = sc.next();
+//     email = sc.next();
+//     System.out.print("Phone Number: ");
+//     phoneNumber = sc.next();
 //     System.out.print("Street Address (62 Peachwood Road, Albany NY, 12208): ");
-//     String streetAddress = sc.next();
+//     streetAddress = sc.next();
 //     System.out.print("Enter your report here: ");
 //     report = sc.next();
 //     System.out.println();
@@ -174,15 +183,20 @@
 
 //     setFirstName(firstName);
 //     setLastName(lastName);
-//     setPhoneNumber(phoneNumber);
 //     setEmail(email);
+//     setPhoneNumber(phoneNumber);
 //     setStreetAddress(streetAddress);
 //     setReport(report);
+    
 //     writeToFile();
 //   }
 
+//   /**
+//     * public String toString() displays the string representaion of the class object
+//     * @return the string representation of the class object
+//   **/
 //   @Override
 //   public String toString() {
-//     return getId() + ", " + getFirstName() + ", " + getLastName() + ", " + getEmail() + ", " + getPhoneNumber() + ", " + getStreetAddress() + ", " + getReport() + ", " + getDate() + ", " + getTime();
+//     return getFirstName() + ", " + getLastName() + ", " + getEmail() + ", " + getPhoneNumber() + ", " + getReport() + ", " + date + ", " + time;
 //   }
 // }

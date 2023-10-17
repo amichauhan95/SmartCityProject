@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.page.admin;
 import java.awt.*;
 import java.awt.event.*;
@@ -37,11 +42,13 @@ public class CommentManagement implements ActionListener {
 
   public CommentManagement(User user) {
     this.user = user;
+    frame.setSize(800,700);
     createHeader();
     /* Default value: 1 */
     createFrames(1, "");
   }
 
+  // header component for the page
   public void createHeader() {
 
     frame.setLayout(new BorderLayout());
@@ -64,6 +71,7 @@ public class CommentManagement implements ActionListener {
     frame.add(topPanel, BorderLayout.NORTH);
   }
 
+  // main frams contains all diff component
   public void createFrames(int option, String keyword) {
     // Data panel
     if (scrlpanel != null)
@@ -89,6 +97,7 @@ public class CommentManagement implements ActionListener {
     frame.setVisible(true);
   }
 
+  // search Bar component for the page
   public void searchBar() {
     searchPanel = new JPanel();
     // searchPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -115,6 +124,11 @@ public class CommentManagement implements ActionListener {
     centerPanel.add(searchPanel2);
   }
 
+  /**
+    show and filter the comment by given option algo and keyword
+    @param option {1,2,3} refers to diff sorting algo {name, rate, reviews}
+    keyword, search a place if the place contains keyword string
+  **/
   public void commentFilter(int option, String keyword) {
     String[][] data = new String[0][0];
 
@@ -238,6 +252,11 @@ public class CommentManagement implements ActionListener {
 
   }
 
+  /**
+    Convert image to Jlabel component
+    @param image name
+    @return image Jlabel
+  **/
   public JLabel imageFormat(String image) {
     ImageIcon imageIcon = new ImageIcon(IMAGE_PATH + image);
     Image scaledImage = imageIcon.getImage().getScaledInstance(300, 200, Image.SCALE_FAST);
@@ -245,8 +264,11 @@ public class CommentManagement implements ActionListener {
     return new JLabel(imageIcon);
   }
 
+  /**
+    show delete comment page
+    @param commentid, for which comment
+  **/
   public void deleteCommentPage(int commentId) {
-    // commentsService.deleteComment(commentId, user);
     int result = JOptionPane.showConfirmDialog(frame,
         "Are you sure you want to delete this comment? This cannot be undone.", "Delete Comment",
         JOptionPane.YES_NO_OPTION,

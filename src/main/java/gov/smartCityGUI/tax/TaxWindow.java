@@ -1,11 +1,11 @@
 package gov.smartCityGUI.tax;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/19/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/19/2023
+  * Description: This class creates the UI for the tax system and displays it to the user allowing them to access all of the tax account functions available to them.
+**/
 
 import java.io.*;
 import java.awt.*;
@@ -60,11 +60,11 @@ public class TaxWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * The default constructor is used to instantiate a tax user and their account and build the window with all of its UI Components
-  *
-  * @param user the user accessing the Tax system
-  */
+  /**
+    * The default constructor is used to instantiate a tax user and their account and build the window with all of its UI Components
+    *
+    * @param user the user accessing the Tax system
+  **/
   public TaxWindow(User user){
     this.user = user;
     account = new TaxAccount(user);       // Opens the users tax account
@@ -76,18 +76,18 @@ public class TaxWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to build the frame for the window
-  */
+  /**
+    * This method is used to build the frame for the window
+  **/
   public void createFrame(){
     frame = Gui.bigFrame("Tax and Finance System");
   } // End createFrame() method
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create and position labels within the frame
-  */
+  /**
+    * This method is used to create and position labels within the frame
+  **/
   public void createLabels(){
 
     //Account holder label
@@ -118,9 +118,9 @@ public class TaxWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create and position buttons in the frame, also adding action listeners
-  */
+  /**
+    * This method is used to create and position buttons in the frame, also adding action listeners
+  **/
   public void createButtons(){
 
     //Back button
@@ -163,9 +163,9 @@ public class TaxWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create the edit frame and all of its components, used to allow an admin user to edit tax rates
-  */
+  /**
+    * This method is used to create the edit frame and all of its components, used to allow an admin user to edit tax rates
+  **/
   public void editFrame(User user){
     //Populate current tax rates
     account.populateTaxRates();
@@ -240,9 +240,9 @@ public class TaxWindow implements ActionListener{
 
    //***********************************************************************//
 
-  /*
-  * This method is used to create the input frame and all of its components, used to allow the user to input a payment amount or register an LLC
-  */
+  /**
+    * This method is used to create the input frame and all of its components, used to allow the user to input a payment amount or register an LLC
+  **/
   public void inputFrame(){
 
     //Input frame
@@ -279,9 +279,9 @@ public class TaxWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to perform actions when buttons are pressed
-  */
+  /**
+    * This method is used to perform actions when buttons are pressed
+  **/
   public void actionPerformed(ActionEvent e){
 
     //If back button is pressed
@@ -388,7 +388,4 @@ public class TaxWindow implements ActionListener{
       TaxWindow tax = new TaxWindow(this.user);
     }
   } // End actionPerformed() method
-
- 
-
 } // End of class

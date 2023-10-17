@@ -1,7 +1,15 @@
+/*
+@author Ami Chauhan
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.hospital.model;
 
 public class Doctor {
 
+
+  // Variables for all data in Doctor
   private String userID;
   private String firstName;
   private String lastName;
@@ -10,6 +18,7 @@ public class Doctor {
   private double conslutingFee;
   private boolean available;
 
+  // consutructor to intialize data
   public Doctor(String userID, String firstName, String lastName, String phone, String email, double conslutingFee,
       boolean available) {
     this.userID = userID;
@@ -22,6 +31,7 @@ public class Doctor {
 
   }
 
+  // Getter and Setters 
   public String getUserID() {
     return userID;
   }

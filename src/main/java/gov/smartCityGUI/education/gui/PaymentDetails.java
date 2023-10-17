@@ -1,3 +1,8 @@
+/**
+  * Team Member(s) working on this class: Ami Chauhan, Melih Kartal, Dylan Moran
+  * Project: Smart City
+  * @author: Ami Chauhan
+**/
 
 package gov.smartCityGUI.education.gui;
 
@@ -147,42 +152,50 @@ public class PaymentDetails implements ActionListener {
   }
 
   public void actionPerformed(ActionEvent e) {
-    
+    try{
       String workdayBegin = workdayBeginText.getText();
       String workDayEnd = workDayEndText.getText();
       String yearsOfExpStr = yearsOfExpText.getText();
       String basePayStr = basePayText.getText();
-      Double basePay = Double.parseDouble(basePayStr);
-      int yearsOfExp = Integer.parseInt(basePayStr);
-      system.p.setDaysWorked(system.p.calculateWorkingDaysBetween(workdayBegin, workDayEnd));    
-      int daysworked = system.p.getDaysWorked();
-      double hourlyPayAfterBonuses = system.p.calculatePayAfterBonuses(basePay, yearsOfExp);
-      double paycheck = hourlyPayAfterBonuses * daysworked * 7.5 ;
-      double annualPay = hourlyPayAfterBonuses * 365 * 7.5; // Assuming 365 workdays in a year
-
-    if (e.getSource() == daysWorkedButton) {
-     
-      JOptionPane.showMessageDialog(frame.getComponent(0), "You worked: " + daysworked + " days.");
-    }
-    if (e.getSource() == hourlyPayButton) {
-     
-      JOptionPane.showMessageDialog(frame.getComponent(0), "Hourly pay (Includes Bonus): $" + hourlyPayAfterBonuses);
-    }
-    if (e.getSource() == calPayButton) {
-       
-      JOptionPane.showMessageDialog(frame.getComponent(0), "Paycheck for date range (Includes Bonus): $" + paycheck);
-
-    }
-    if (e.getSource() == calAnnualButton) {
-       
-      JOptionPane.showMessageDialog(frame.getComponent(0), "Annual pay (Includes Bonus): $" + annualPay);
-
-    }
-
-    if (e.getSource() == backButton) {
-      frame.dispose();
-      TeachersPortal view = new TeachersPortal(this.user, this.system);
-    }
+	  
+	      Double basePay = Double.parseDouble(basePayStr);
+	      int yearsOfExp = Integer.parseInt(basePayStr);
+	  
+	    system.p.setDaysWorked(system.p.calculateWorkingDaysBetween(workdayBegin, workDayEnd));    
+	      int daysworked = system.p.getDaysWorked();
+	      double hourlyPayAfterBonuses = system.p.calculatePayAfterBonuses(basePay, yearsOfExp);
+	      double paycheck = hourlyPayAfterBonuses * daysworked * 7.5 ;
+	      double annualPay = hourlyPayAfterBonuses * 365 * 7.5; // Assuming 365 workdays in a year
+			  
+	
+	    if (e.getSource() == daysWorkedButton) {
+	     
+	      JOptionPane.showMessageDialog(frame.getComponent(0), "You worked: " + daysworked + " days.");
+	    }
+	    if (e.getSource() == hourlyPayButton) {
+	     
+	      JOptionPane.showMessageDialog(frame.getComponent(0), "Hourly pay (Includes Bonus): $" + hourlyPayAfterBonuses);
+	    }
+	    if (e.getSource() == calPayButton) {
+	       
+	      JOptionPane.showMessageDialog(frame.getComponent(0), "Paycheck for date range (Includes Bonus): $" + paycheck);
+	
+	    }
+	    if (e.getSource() == calAnnualButton) {
+	       
+	      JOptionPane.showMessageDialog(frame.getComponent(0), "Annual pay (Includes Bonus): $" + annualPay);
+	
+	    }
+	
+	    if (e.getSource() == backButton) {
+	      frame.dispose();
+	      TeachersPortal view = new TeachersPortal(this.user, this.system);
+	    }
+	  
+	  } catch(NumberFormatException nfe){
+		  	System.out.println("-Number format Exception-\nExiting to Menu...\n ");
+			frame.dispose();
+			TeachersPortal view = new TeachersPortal(this.user, this.system);
+	  }
   }
-
 }

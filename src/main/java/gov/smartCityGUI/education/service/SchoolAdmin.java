@@ -1,3 +1,8 @@
+/**
+  * Team Member(s) working on this class: Melih Kartal, Ami Chauhan
+  * Project: Smart City
+  * @author: Melih Kartal
+**/
 package gov.smartCityGUI.education.service;
 
 import java.io.FileWriter;
@@ -106,11 +111,10 @@ public class SchoolAdmin {
     }
     return collegePresidents;
   }
-
   public void readFile(String fileName) throws FileNotFoundException, IOException {
     newList.clear();
     BufferedReader bufReader = new BufferedReader(
-        new FileReader("Scenes/Education/static/" + fileName));
+        new FileReader("src/main/java/gov/smartCityGUI/education/static/" + fileName));
     String line = bufReader.readLine();
     while (line != null) {
       newList.add(line);

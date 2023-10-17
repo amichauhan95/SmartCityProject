@@ -1,11 +1,12 @@
 package gov.smartCityGUI.tax;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 8/31/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 8/31/2023
+  * Description: This class is the service layer of the tax system and can allow users to view their tax account, perform
+  * actions such as makeing payments, registering an LLC. Admins can modify tax rates and LLCs.
+**/
 
 import java.io.*;
 import javax.swing.*;
@@ -22,11 +23,11 @@ public class TaxAccount{
 
   //#####################################################################//
 
-  /*
-  * Constructor method that will add the current user to the TaxUsers.txt file if not already
-  *
-  * @param currentUser the user who will be added for use of the tax system
-  */
+  /**
+    * Constructor method that will add the current user to the TaxUsers.txt file if not already
+    *
+    * @param currentUser the user who will be added for use of the tax system
+  **/
   public TaxAccount(User currentUser){
     this.userID = currentUser.getID();
     addAccount(currentUser);
@@ -34,11 +35,11 @@ public class TaxAccount{
 
   //#####################################################################//
   
-  /*
-  * This method will login the current user with the Tax System.
-  *
-  * @return a TaxUser object will be returned
-  */
+  /**
+    * This method will login the current user with the Tax System.
+    *
+    * @return a TaxUser object will be returned
+  **/
   public TaxUser login(){
 
     if(this.userID == null){
@@ -71,12 +72,12 @@ public class TaxAccount{
 
   //#####################################################################//
 
-  /*
-  * This method will populate the current users tax information.
-  *
-  * @param currentUser a TaxUser object is passed through to be modified and ultimately returned
-  * @return a TaxUser object will be returned
-  */
+  /**
+    * This method will populate the current users tax information.
+    *
+    * @param currentUser a TaxUser object is passed through to be modified and ultimately returned
+    * @return a TaxUser object will be returned
+  **/
   public static TaxUser populateTaxInfo(TaxUser currentUser){
 
     try{
@@ -124,9 +125,9 @@ public class TaxAccount{
 
   //#####################################################################//
 
-      /*
-    This method will populate the tax rates for the class with the most up to date data from file.
-    */
+    /**
+      * This method will populate the tax rates for the class with the most up to date data from file.
+    **/
     public static void populateTaxRates(){
     try{
       File readFile = new File("src/main/java/gov/smartCityGUI/tax/static/taxRates.txt");
@@ -146,14 +147,14 @@ public class TaxAccount{
 
   //#####################################################################//
 
-  /*
-  * This method is used in TaxUser.java to update file when the objects attributes are modified.
-  *
-  * @param userID the ID of the users account to be updated
-  * @param lastName the last name of the users account to be updated
-  * @param newBalance the updated balance
-  * @param newTotalTax the updated total tax
-  */
+  /**
+    * This method is used in TaxUser.java to update file when the objects attributes are modified.
+    *
+    * @param userID the ID of the users account to be updated
+    * @param lastName the last name of the users account to be updated
+    * @param newBalance the updated balance
+    * @param newTotalTax the updated total tax
+  **/
   public static void updateTaxInfo(String userID, String lastName, double newBalance, double newTotalTax){
 
     try{
@@ -189,11 +190,11 @@ public class TaxAccount{
 
   //#####################################################################//
 
-  /*
-  * This method is used to add the current user to the Tax Users file if they do not already exist there
-  *
-  * @param currentUser the user who will be added to the file
-  */
+  /**
+    * This method is used to add the current user to the Tax Users file if they do not already exist there
+    *
+    * @param currentUser the user who will be added to the file
+  **/
   public void addAccount(User currentUser){
 
     try{ 
@@ -230,15 +231,15 @@ public class TaxAccount{
 
   //####################################################################//
 
-    /*
-    * This method helps the modifyTaxRates() method by modifying the taxRates.txt file directly
-    * 
-    * @param salesTax the edited sales tax
-    * @param incomeTax the edited income tax
-    * @param corpTax the edited corporation tax
-    * @param propTax the edited property tax
-    * @return boolean true if successful, false if not
-    */
+    /**
+      * This method helps the modifyTaxRates() method by modifying the taxRates.txt file directly
+      * 
+      * @param salesTax the edited sales tax
+      * @param incomeTax the edited income tax
+      * @param corpTax the edited corporation tax
+      * @param propTax the edited property tax
+      * @return boolean true if successful, false if not
+    **/
   public static boolean changeRates(String salesTax, String incomeTax, String corpTax, String propTax){
 
     try{
@@ -276,13 +277,13 @@ public class TaxAccount{
   
   //####################################################################//
   
-  /*
-  * This method will be used to make a payment on a users tax account balance
-  *
-  * @param user this is the general User object, used for the charge() method
-  * @param taxUser this is used to access the users tax account and to update their data
-  * @param amount the amount that is being paid
-  */
+  /**
+    * This method will be used to make a payment on a users tax account balance
+    *
+    * @param user this is the general User object, used for the charge() method
+    * @param taxUser this is used to access the users tax account and to update their data
+    * @param amount the amount that is being paid
+  **/
   public static void makePayment(User user, TaxUser taxUser, double amount){
 
     taxUser = populateTaxInfo(taxUser);
@@ -295,12 +296,12 @@ public class TaxAccount{
 
   //####################################################################//
 
-  /*
-  * This method is used to add a newly registered business to file
-  *
-  * @param name the name of the business
-  * @reutrn boolean true if successful, false if not or if it already exists
-  */
+  /**
+    * This method is used to add a newly registered business to file
+    *
+    * @param name the name of the business
+    * @reutrn boolean true if successful, false if not or if it already exists
+  **/
    public static boolean fileLLC(String name){
     if(name.equals("")) return true;
     try{
@@ -340,11 +341,11 @@ public class TaxAccount{
 
   //####################################################################//
 
-  /*
-  * This method is used to get all LLCs from file
-  *
-  * @return ArrayList<String> an array list of all registered businesses
-  */
+  /**
+    * This method is used to get all LLCs from file
+    *
+    * @return ArrayList<String> an array list of all registered businesses
+  **/
   public static ArrayList<String> getLLCs(){
 
     ArrayList<String> llcs = new ArrayList<String>();
@@ -364,5 +365,4 @@ public class TaxAccount{
         return llcs;
     }
   } // End getLLCs() method
-  
 } // End class

@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.page.user;
 import java.awt.*;
 import java.awt.event.*;
@@ -42,6 +47,7 @@ public class CommentPage implements ActionListener{
   
   public CommentPage(User user){
     this.user = user;
+    frame.setSize(800,700);
     createHeader();
     /* Default value: 1*/
     createFrames(1, "");
@@ -52,8 +58,6 @@ public class CommentPage implements ActionListener{
     frame.setLayout(new BorderLayout());
     
     topPanel = new JPanel();
-    // topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
-    // Back botton
     backButton = Gui.back();
     backButton.addActionListener(this);
     topPanel.add(backButton);
@@ -70,9 +74,9 @@ public class CommentPage implements ActionListener{
     frame.add(topPanel, BorderLayout.NORTH);
   }
 
+  // search Bar component for the page
   public void searchBar(){
     searchPanel = new JPanel();
-    // searchPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
     String sortOption[]={"Recent","Latest"}; 
     cb = new JComboBox(sortOption);    
     searchButton = new JButton("Search"); 
@@ -176,6 +180,7 @@ public class CommentPage implements ActionListener{
     frame.setVisible(true);
   }
 
+  // main frams contains all diff component
   public void createFrames(int option, String keyword){
     // Data panel
     if(scrlpanel != null) frame.remove(scrlpanel);
@@ -199,7 +204,11 @@ public class CommentPage implements ActionListener{
     centerPanel.setVisible(true);
     frame.setVisible(true);
   }
-  
+
+  /**
+    Filters the current user's comments by given option and keyword
+    @param option takes {1,2,3} which triggers the diff sorting algo; keyword is a string that finds mathcing comment records
+  **/
   public void commentFilter(int option, String keyword){
     String [][] data = new String[0][0];
 
@@ -224,7 +233,6 @@ public class CommentPage implements ActionListener{
         l.setFont(new Font(l.getFont().getName(), l.getFont().getStyle(), 15));
         l1.setFont(new Font(l.getFont().getName(), l.getFont().getStyle(), 15));
         l2.setFont(new Font(l.getFont().getName(), l.getFont().getStyle(), 15));
-        // l.setHorizontalAlignment(SwingConstants.CENTER);
         JPanel p = new JPanel();
         p.add(Box.createRigidArea(new Dimension(19, 0)));
         p.add(l);
@@ -232,7 +240,6 @@ public class CommentPage implements ActionListener{
         p.add(l1);
         p.add(length);
         p.add(l2);
-        // l.setVerticalAlignment(SwingConstants.CENTER);
         centerPanel.add(p);
       }
     }
@@ -280,11 +287,11 @@ public class CommentPage implements ActionListener{
   
   public void actionPerformed(ActionEvent e){
     if(e.getSource() == backButton){
-		frame.dispose();
+		  frame.dispose();
       new UserPage(user);
     }
     if(e.getSource() == homeButton){
-		frame.dispose();
+		  frame.dispose();
       new Menu(user);
     }
     if(e.getSource() == tourismButton){
@@ -310,6 +317,11 @@ public class CommentPage implements ActionListener{
 
   }
 
+  /**
+    Fomattring a image into JLabel object
+    @param image is the image file name
+    @return return the JLable image
+  **/
   public JLabel imageFormat(String image){
     ImageIcon imageIcon = new ImageIcon(IMAGE_PATH + image);
     Image scaledImage = imageIcon.getImage().getScaledInstance(300, 200, Image.SCALE_FAST);
@@ -317,13 +329,16 @@ public class CommentPage implements ActionListener{
     return new JLabel(imageIcon);
   }
 
+  /**
+    Display a edit comment page for a place by given placeid
+    @param placeId
+  **/
   public void editCommentPage(int placeId){
-    // int commentId = Integer.parseInt(button.getName());
     
     JFrame f=new JFrame("Edit Comment Form");
     f.setSize(500, 400);
     f.setLocation(300, 200);
-    f.setLayout(new FlowLayout());//设置布局管理器
+    f.setLayout(new FlowLayout());
     
     f.setVisible(true);
     JPanel panel = new JPanel();
@@ -358,7 +373,6 @@ public class CommentPage implements ActionListener{
     commentLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
     commentLabelText.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-// Add "glue" at the start and end of the panel
     panel.add(Box.createVerticalGlue());
     panel.add(title);
     panel.add(Box.createRigidArea(new Dimension(0, 35)));
@@ -389,7 +403,6 @@ public class CommentPage implements ActionListener{
           f.dispose();
           frame.dispose();
           new CommentPage(user);
-          // te();
         } else {
           JOptionPane.showMessageDialog(f,"*Please enter 0 - 5\n*Comment must not be empty","Alert",JOptionPane.WARNING_MESSAGE);
         }
@@ -404,8 +417,11 @@ public class CommentPage implements ActionListener{
   
   }
 
+  /**
+    Display a delete comment page for a place by given placeid
+    @param placeId
+  **/
   public void deleteCommentPage(int  commentId){
-    // commentsService.deleteComment(commentId, user);
     int result = JOptionPane.showConfirmDialog(frame,"Are you sure you want to delete this comment? This cannot be undone.", "Delete Comment",
                JOptionPane.YES_NO_OPTION,
                JOptionPane.QUESTION_MESSAGE);

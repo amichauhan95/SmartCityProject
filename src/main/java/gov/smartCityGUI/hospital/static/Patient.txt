@@ -1,1 +1,5 @@
 0;Ami;Chauhan;DOB;Phone;Address;Email;Date;InsuranceID;AppointmentID;false
+3;Ami;Chauhan;09/14/1995;6072329848;123 Laurel Ave;amichauhan95@gmail.com;2023/09/27;1234;I2023/09/271234;false
+3;Ami;Chauhan;09/14/1995;6072324567;test@gmail.com;test@gmai.com;2023/09/28;1234;I2023/09/281234;false
+3;Ami;Chauhan;14/09/1995;6056065698;12 Ave;test@gmail.com;2023/09/28;1245;I2023/09/281245;true
+3;Ami;Chauhan;09-09-1995;7897892346;Test Address;test@gmail.com;2023/09/28;12;I2023/09/2812;true

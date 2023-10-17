@@ -1,6 +1,6 @@
 package gov.smartCityGUI.admin.models;
 
-/*
+/**
 *User Class
 *@author Dylan Moran
 *@date 8/29/2023
@@ -20,7 +20,7 @@ public class User{
 
   /**
     * This method represents the default constructor
-  **/
+  */
   public User(){
     
   }
@@ -43,16 +43,16 @@ public class User{
     this.role = role;
   }
 
-	/*
- 	* Singleton use to initialize a User instance
- 	*/
+	/**
+ 	  * Singleton use to initialize a User instance
+ 	  */
 	public static synchronized void initiliazeUser(String userID, String firstName, String lastName, String email, String phoneNumber, String role){
     	if(user == null){
       		user = new User(userID, firstName, lastName, email, phoneNumber, role);
     	}
   	}
 
-	/*
+	/**
  	* Singleton use to get the singleton user instance
  	*/
 	public static synchronized User getInstance(){

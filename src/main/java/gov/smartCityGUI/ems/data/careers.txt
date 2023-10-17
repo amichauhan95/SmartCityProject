@@ -1,0 +1,12 @@
+Fire,US Navy,Fire Controlman,Albany, NY, TBA
+Fire,Kimmel & Associates,Fire Sprinkler & Operations Manager,Albany, NY, $48000
+Fire,LaBella Associates,Sr. Plumbing & Fire Protection Engineer,Albany, NY, $100000
+Fire,MacFawn Fire & Flood Restoration,Business Development Representative,Albany, NY, $30000
+Paramedic,Mohawk Ambulance, Paramedic,Albany, NY, $51535
+Paramedic,Kimmel & Associates, Paramedic,Albany, NY, $52000
+Paramedic,WellNow Urgent Care, Paramedic,Albany, NY, $46000
+Paramedic,AmeriPro EMS LLC, Emergency Medical Technician,Albany, NY, $41600
+Police,New York State Police, Office Assistant 2,Albany, NY, $40193
+Police,State Police Division of Albany, State Police Security Screening Technician Trainee,Albany, NY, $38719
+Police,Town of Schodack Castleton, Police Clerk,Hudson, NY, $40193
+Police,Army National Guard, Police Officer,Albany, NY, TBA

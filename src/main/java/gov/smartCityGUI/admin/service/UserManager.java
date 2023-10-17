@@ -1,10 +1,10 @@
 package gov.smartCityGUI.admin.service;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/13/2023
-I recieved help from: N/A
+/**
+* @author Dylan Moran
+* Project: Smart City
+* @date 9/13/2023
+* I recieved help from: N/A
 */
 
 import javax.swing.*;
@@ -18,11 +18,11 @@ public class UserManager{
 
   // ***********************************************************************//
 
-  /*
-  This method is used to return the user with the corresponding ID #
-  @param userID the id of the user to be returned
-  @return the user with corresponding ID #
-  */
+  /**
+    * This method is used to return the user with the corresponding ID #
+    * @param userID the id of the user to be returned
+    * @return the user with corresponding ID #
+  **/
   public static User getUser(String userID){
   
     try{
@@ -45,10 +45,10 @@ public class UserManager{
 
   // ***********************************************************************//
 
-  /*
-  This method is used to obtain a list of all users who have registered
-  @return an array list of all of the users
-  */
+  /**
+    * This method is used to obtain a list of all users who have registered
+    * @return an array list of all of the users
+  **/
   public static ArrayList<User> fetchUsers(){
 
     ArrayList<User> allUsers = new ArrayList<User>();
@@ -73,10 +73,10 @@ public class UserManager{
 
   // ***********************************************************************//
 
-  /*
-  This method is used to make a user an admin or general user
-  @param the user who's privileges are being altered
-  */
+  /**
+    * This method is used to make a user an admin or general user
+    * @param the user who's privileges are being altered
+  **/
   public static void toggleAdmin(User user){
    
     try{
@@ -93,7 +93,11 @@ public class UserManager{
             if(parts[5].equals("9850")){
               parts[5] = "1";
             } else {
-              parts[5] = "9850";
+				if(parts[5] != "1234" && parts[5] != "1444"){
+              		parts[5] = "9850";
+				} else {
+					JOptionPane.showMessageDialog(null, "This user has other roles and cannot be changed.", "Notification", JOptionPane.INFORMATION_MESSAGE);
+				}
             }
             line = String.join(",", parts);
           }
@@ -113,10 +117,10 @@ public class UserManager{
 
   // ***********************************************************************//
 
-  /*
-  This method is used to delete a user from the system
-  @param user the user who is being deleted
-  */
+  /**
+    * This method is used to delete a user from the system
+    * @param user the user who is being deleted
+  **/
   public static void deleteUser(User user){
     
      try{
@@ -147,15 +151,15 @@ public class UserManager{
 
   // ***********************************************************************//
 
-  /*
-  This method is used to edit a users information
-  @param user the user who is being edited
-  @param firstName their updated first name
-  @param lastName their updated last name
-  @param email their updated email
-  @param phone their updated phone number
-  @return a boolean for whether or not the changes are valid and successful
-  */
+  /**
+    * This method is used to edit a users information
+    * @param user the user who is being edited
+    * @param firstName their updated first name
+    * @param lastName their updated last name
+    * @param email their updated email
+    * @param phone their updated phone number
+    * @return a boolean for whether or not the changes are valid and successful
+  **/
   public static boolean editUser(User user, String firstName, String lastName, String email, String phone){
   
     if(!validate(firstName, lastName, email, phone)) return false;
@@ -198,14 +202,14 @@ public class UserManager{
 
   // ***********************************************************************//
 
-  /*
-  This method is a helper method used to validate edited information to make sure it meets all criteria
-  @param firstName their updated first name
-  @param lastName their updated last name
-  @param email their updated email
-  @param phone their updated phone number
-  @return a boolean for whether or not the changes are valid
-  */
+  /**
+    * This method is a helper method used to validate edited information to make sure it meets all criteria
+    * @param firstName their updated first name
+    * @param lastName their updated last name
+    * @param email their updated email
+    * @param phone their updated phone number
+    * @return a boolean for whether or not the changes are valid
+  **/
   public static boolean validate(String firstName, String lastName, String email, String phone){
 
     if(firstName.length() < 3 || lastName.length() < 3) return false;

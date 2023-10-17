@@ -1,11 +1,12 @@
 package gov.smartCityGUI.admin.gui;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/13/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/13/2023
+  * Description: This is the frontend window for the admin panel. Here an admin can view a list of users who are
+  * registered in the system and access their profils to edit, delete or toggle their admin status.
+**/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -53,8 +54,8 @@ public class AdminWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  Constructor to build the UI and save user to the class
+  /**
+  * Constructor to build the UI and save user to the class
   */
   public AdminWindow(User user){
     this.user = user;
@@ -66,8 +67,8 @@ public class AdminWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the main frame
+  /**
+  * This method is used to create the main frame
   */
   public void createFrames(){
     frame = Gui.bigFrame("Manage Users");
@@ -75,9 +76,10 @@ public class AdminWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the account view frame
-  @param id the ID # of the user whos account is being viewed
+  /**
+  * This method is used to create the account view frame
+  
+  * @param id the ID # of the user whos account is being viewed
   */
   public void manageFrame(String id){
     //Account frame
@@ -139,8 +141,8 @@ public class AdminWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the edit frame and all of it's components
+  /**
+  * This method is used to create the edit frame and all of it's components
   */
   public void editFrame(User user){
     //Edit Frame
@@ -213,8 +215,8 @@ public class AdminWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create all of the buttons in the main frame
+  /**
+  * This method is used to create all of the buttons in the main frame
   */
   public void createButtons(){
     backButton = Gui.back();
@@ -228,8 +230,8 @@ public class AdminWindow implements ActionListener{
   } // End createButtons() method
   //***********************************************************************//
 
-  /*
-  This method is used to create all the labels
+  /**
+  * This method is used to create all the labels
   */
   public void createLabels(){
 
@@ -244,8 +246,8 @@ public class AdminWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the scroll pane
+  /**
+  * This method is used to create the scroll pane
   */
   public void createScrollPane(){
 
@@ -274,8 +276,8 @@ public class AdminWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to handle all button presses
+  /**
+  * This method is used to handle all button presses
   */
   public void actionPerformed(ActionEvent e){
 

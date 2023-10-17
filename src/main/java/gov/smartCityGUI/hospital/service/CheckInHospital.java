@@ -1,3 +1,9 @@
+/*
+@author Ami Chauhan
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.hospital.service;
 
 import javax.swing.*;
@@ -10,10 +16,7 @@ import java.util.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import gov.smartCityGUI.admin.models.*;
 import gov.smartCityGUI.hospital.model.*;
-import gov.smartCityGUI.hospital.service.*;
-import gov.smartCityGUI.hospital.controller.*;
 
 public class CheckInHospital {
 
@@ -23,12 +26,13 @@ public class CheckInHospital {
   String appointmentID;
   String appointmentDoctor;
   boolean appointmentStatus = false;
+  
   BookAppointment b1 = new BookAppointment();
   DoctorList d1 = new DoctorList();
 
   ArrayList<Appointment> reportList = new ArrayList<Appointment>();
 
-  // fucntion to check the patient into the hospital
+  // function to check the patient into the hospital
   public boolean checkInAppointment(String patientFirstName, String patientLastName, String insuranceID,
       String appointmentID) {
 
@@ -44,11 +48,9 @@ public class CheckInHospital {
     }
   }
 
+  // function to assign doctor to the appointmentID after check in
   public void assignDoctor(String appointmentID) {
-    // Remove Doctor Availiblity When Patient is assigned
-    // Find the next available Doctor
-    // If Doctor is not available show waiting time to patient
-    // Assign doctor to patient in PatientDoctor File
+    
     String time = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
     String none = "N/A";
     appointmentDoctor = d1.getAvailableDoctor();
@@ -68,6 +70,7 @@ public class CheckInHospital {
 
   }
 
+  // function to read and add all appointment reports into the list
   public void addReport() {
     reportList.clear();
     try {
@@ -88,6 +91,7 @@ public class CheckInHospital {
 
   }
 
+  // function to update the appointment report
   public void updateReport() {
 
     int count = 0;
@@ -119,11 +123,10 @@ public class CheckInHospital {
     }
   }
 
+  // funcation to submit the report 
   public void submitReport(String doctorID, String appointmentID, String patientSymptoms, String patientTreatments,
       double patientCharges) {
-    // AppointmentID;AppointmentDate;AppointmentDoctor;DoctorFee;
-    // DoctorReportSymptoms;ReportTreatments
-    // Update Doctor Availiblity When Patient Report is submitted
+    
     boolean status = false;
     addReport();
     for (Appointment a : reportList) {
@@ -150,10 +153,9 @@ public class CheckInHospital {
 
   }
 
+  // funcation to update the fees of the appointment
   public void updateFees(String appointmentID, double amount) {
-    // AppointmentID;AppointmentDate;AppointmentDoctor;DoctorFee;
-    // DoctorReportSymptoms;ReportTreatments
-    // Update Doctor Availiblity When Patient Report is submitted
+    
     addReport();
     for (Appointment a : reportList) {
       if (a.getAppointmentID().equals(appointmentID)) {
@@ -166,32 +168,22 @@ public class CheckInHospital {
     updateReport();
   }
 
+  //function to return the appointment report assigned to the doctors 
   public ArrayList<Appointment> getPatientsReport(String doctorID, String date) {
     addReport();
-    // System.out.println("Enter Date: ");
-    // String date = scan.nextLine();
     ArrayList<Appointment> allAppointments = new ArrayList<Appointment>();
     for (Appointment a : reportList) {
       if (a.getAppointmentTime().equals(date) &&
           a.getAppointmentDoctor().equals(doctorID)) {
 
-        // System.out.println("\n------------------------------------------");
-        // System.out.println("Patient's Appointment ID: " + a.getAppointmentID() +
-        //     "\nPatients Symptoms: "
-        //     + a.getReportSymptoms() + "\nPatient's Treatments: " +
-        //     a.getReportTreatments() + "\nAppointment Bill: " + a.getPaymentBill());
-        // System.out.println("------------------------------------------");
         allAppointments.add(a);
-        // String parts[] = { a.getAppointmentID(), a.getReportSymptoms(),
-        // a.getReportTreatments(),
-        // Double.toString(a.getPaymentBill()) };
-        // return parts;
       }
     }
    
     return allAppointments;
   }
 
+  // function returns patients report
   public String[] viewPatientsReport(String appointmentID) {
     addReport();
 
@@ -206,6 +198,7 @@ public class CheckInHospital {
     return null;
   }
 
+  // function returns total pending bill for the appointment 
   public double payBill(String appointmentID) {
     double totalBill = 0;
     addReport();

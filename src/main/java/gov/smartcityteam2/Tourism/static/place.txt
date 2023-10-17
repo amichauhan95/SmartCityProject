@@ -1,5 +1,0 @@
-1;New York State Capitol;The New York State Capitol, the seat of the New York state government, is located in Albany, the capital city of the U.S. state of New York.;354;1.3
-2;New York State Museum;The New York State Museum is a research-backed institution in Albany, New York, United States.;2980;4.7
-3;Albany Institute of History & Art;The institute's three-building complex includes the late 19th-century Rice Building, the only freestanding Beaux-Arts mansion in the city, designed by Richard Morris Hunt and donated to the institute by one of its former benefactors.;1564;2.7
-4;Washington Park;The 81-acre park was created during the 1870s-80s from a design by Calvert Vaux and Fredrick Olmsted, who is famous for New York City's Central Park. ;706;3.3
-5;Palace Theatre;The Palace Theatre has been entertaining audiences since 1931. Originally built as an RKO movie theater, the Palace was Albany’s largest movie theater.;1648;5

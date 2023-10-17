@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.page.user;
 import java.awt.event.*;
 import javax.swing.*;
@@ -25,7 +30,7 @@ public class UserPage implements ActionListener{
   }
 
   public void createFrames(){
-    frame = Gui.bigFrame("Tourism Role = *User*");
+    frame = Gui.bigFrame("Tourism System");
   }
 
   public void createButtons(){
@@ -34,12 +39,12 @@ public class UserPage implements ActionListener{
     backButton.addActionListener(this);
     frame.add(backButton);
 
-    button1 = Gui.genericButton("Place System");
+    button1 = Gui.genericButton("View Places");
     button1.addActionListener(this);
     button1.setBounds(50, 130, 200, 60);
     frame.add(button1);
 
-    button2 = Gui.genericButton("UserComments System");
+    button2 = Gui.genericButton("View/Add Comments");
     button2.addActionListener(this);
     button2.setBounds(450, 130,200,60);
     frame.add(button2);

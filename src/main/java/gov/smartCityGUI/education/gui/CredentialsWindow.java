@@ -1,6 +1,6 @@
 package gov.smartCityGUI.education.gui;
 
-/*
+/**
 @author Dylan Moran
 Project: Smart City
 @date 9/19/2023
@@ -40,7 +40,7 @@ public class CredentialsWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * The default constructor is used to build the window and add all UI Components
   */
 	public CredentialsWindow(User user, EducationSystem system){
@@ -54,7 +54,7 @@ public class CredentialsWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to build the frame for the window
   */
   public void createFrame(){
@@ -63,7 +63,7 @@ public class CredentialsWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to create and position the text fields within the frame
   */
   public void createTextFields(){
@@ -92,7 +92,7 @@ public class CredentialsWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to create and position labels within the frame
   */
   public void createLabels(){
@@ -125,7 +125,7 @@ public class CredentialsWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to create and position buttons within the frame, also adding action listeners
   */
   public void createButtons(){
@@ -149,7 +149,7 @@ public class CredentialsWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to perform actions when buttons are pressed
   */
   public void actionPerformed(ActionEvent e){

@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.page.admin;
 
 
@@ -41,7 +46,7 @@ public class AdminPage implements ActionListener {
     button1.setBounds(50, 130, 200, 60);
     frame.add(button1);
 
-    button2 = Gui.genericButton("UserComments Management");
+    button2 = Gui.genericButton("Comment Management");
     button2.addActionListener(this);
     button2.setBounds(450, 130, 200, 60);
     frame.add(button2);

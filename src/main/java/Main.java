@@ -1,4 +1,8 @@
-import gov.smartcityteam2.Menue;
+/**
+Team Member(s) working on this class: Natalie Darsillo, Ami Chauhan, Huiying Lin, Melih Kartal, Keith Austin, Dylan Moran
+Project: Smart City
+I recieved help from: Google
+*/
 import gov.smartCityGUI.login.*;
 
 class Main {

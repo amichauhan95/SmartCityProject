@@ -41,6 +41,11 @@ public class BookApptForm implements ActionListener {
   JButton button;
   JButton backButton;
 
+  /**
+    * public BookApptForm(User user, HospitalSystem system) does ...
+    * @param User user represents ...
+    * @param HospitalSystem system represents ...
+  **/
   public BookApptForm(User user, HospitalSystem system) {
     this.user = user;
     this.system = system;
@@ -50,6 +55,9 @@ public class BookApptForm implements ActionListener {
     createButtons();
   }
 
+  /**
+    * public void createFrame() does ...
+  **/
   public void createFrame() {
     frame = new JFrame("Book Appointment");
     frame.setSize(475, 570);
@@ -60,6 +68,9 @@ public class BookApptForm implements ActionListener {
     frame.setVisible(true);
   }
 
+  /**
+    * public void createTextFields() does ...
+  **/
   public void createTextFields() {
     firstNameText = new JTextField();
     firstNameText.setBounds(75, 140, 150, 25);
@@ -100,6 +111,9 @@ public class BookApptForm implements ActionListener {
     frame.add(symptomsText);
   }
 
+  /**
+    * public void createLabels() does ...
+  **/
   public void createLabels() {
 
     JLabel disclaimer = Gui.whiteLabel(
@@ -154,6 +168,9 @@ public class BookApptForm implements ActionListener {
     frame.add(symptomsLabel);
   }
 
+  /**
+    * public void createButtons() does ...
+  **/
   public void createButtons() {
     button = new JButton("Submit");
     button.setBounds(275, 495, 100, 25);
@@ -170,6 +187,10 @@ public class BookApptForm implements ActionListener {
     frame.add(backButton);
   }
 
+  /**
+    * public void actionPerformed(ActionEvent e) does ...
+    * @param ActionEEvent e represents ...
+  **/
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == button) {
 
@@ -188,9 +209,7 @@ public class BookApptForm implements ActionListener {
         frame.dispose();
         HospitalWindow hospital = new HospitalWindow(this.user);
 
-      } else {
-
-      }
+      } 
 
     }
     if (e.getSource() == backButton) {

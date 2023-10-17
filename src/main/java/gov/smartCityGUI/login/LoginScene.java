@@ -1,11 +1,11 @@
 package gov.smartCityGUI.login;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/19/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/19/2023
+  * Description: This class creates the opening window where the user can choose to log in or register.
+**/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -20,10 +20,10 @@ public class LoginScene implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * The default constructor is used to create the frame and buttons for the
-	 * window
-	 */
+	/**
+	  * The default constructor is used to create the frame and buttons for the
+	  * window
+	**/
 	public LoginScene() {
 		createFrame();
 		createButtons();
@@ -31,9 +31,9 @@ public class LoginScene implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to build the frame for the window
-	 */
+	/**
+	  * This method is used to build the frame for the window
+	**/
 	public void createFrame() {
 
 		// Main frame
@@ -48,10 +48,10 @@ public class LoginScene implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to create and add the buttons to the frame, also adding
-	 * action listeners
-	 */
+	/**
+	  * This method is used to create and add the buttons to the frame, also adding
+	  * action listeners
+	**/
 	public void createButtons() {
 
 		// Login button
@@ -73,9 +73,9 @@ public class LoginScene implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to perform actions when buttons are pressed
-	 */
+	/**
+	  * This method is used to perform actions when buttons are pressed
+	**/
 	public void actionPerformed(ActionEvent e) {
 
 		// If login button is pressed
@@ -93,4 +93,4 @@ public class LoginScene implements ActionListener {
 
 	// ***********************************************************************//
 
-}
+} // End class

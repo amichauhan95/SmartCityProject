@@ -1,11 +1,13 @@
 package gov.smartCityGUI.forum;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/13/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/13/2023
+  * Description: This class is used to display the Message Forum UI to the user. It will show the user a list of
+  * messages previously posted and buttons to allow the user to add a message or add a comment. Admins will see 
+  * buttons to delete one or all messages.
+**/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -49,9 +51,9 @@ public class ForumWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  Constructor will build the UI and save the user to the class
-  */
+  /**
+    * Constructor will build the UI and save the user to the class
+  **/
   public ForumWindow(User user){
     this.user = user;
     createFrames();
@@ -61,18 +63,18 @@ public class ForumWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the main frame
-  */
+  /**
+    * This method is used to create the main frame
+  **/
   public void createFrames(){
     frame = Gui.bigFrame("Public Forum");
   } // End createFrames() method
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create the scroll pane to show all of the messages
-  */
+  /**
+    * This method is used to create the scroll pane to show all of the messages
+  **/
   public void createScrollPane(){
 
 	    ArrayList<String[]> messages = MessageSystem.fetchMessages();
@@ -129,9 +131,9 @@ public class ForumWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create all buttons for the main frame
-  */
+  /**
+    * This method is used to create all buttons for the main frame
+  **/
   	public void createButtons(){
 
 	    //Back button
@@ -167,11 +169,11 @@ public class ForumWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create the input frame and all of its components, used to gather user input
-  *
-  * @param messageCode the message code is only utilized for comments to assign the code of the message being commented on
-  */
+  /**
+    * This method is used to create the input frame and all of its components, used to gather user input
+    *
+    * @param messageCode the message code is only utilized for comments to assign the code of the message being commented on
+  **/
  	 public void inputFrame(String messageCode){
 
 	    //Input frame
@@ -207,9 +209,10 @@ public class ForumWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to handle all button presses
-  */
+  /**
+    * This method is used to handle all button presses
+	* @param e the button press
+  **/
 	public void actionPerformed(ActionEvent e){
 
 	    //If backButton is pressed
@@ -317,4 +320,4 @@ public class ForumWindow implements ActionListener{
 
   //***********************************************************************//
 
-}
+} // End class

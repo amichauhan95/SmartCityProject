@@ -78,8 +78,6 @@ public class ViewDoctors implements ActionListener {
 
   // ***********************************************************************//
 
-  /*
-  */
   public void createScrollPane() {
 
     List<Doctor> allDoctors = system.d1.getDoctorList();

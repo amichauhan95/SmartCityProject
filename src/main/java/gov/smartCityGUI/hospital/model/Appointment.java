@@ -1,8 +1,14 @@
-
+/*
+@author Ami Chauhan
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.hospital.model;
 
 public class Appointment {
 
+  // Variables for all data in Appointments
   private String appointmentID;
   private String appointmentTime;
   private String appointmentDoctor;
@@ -10,6 +16,7 @@ public class Appointment {
   private String reportSymptoms;
   private String reportTreatments;
 
+  // consutructor to intialize data
   public Appointment(String appointmentID, String appointmentTime,
       String appointmentDoctor, double paymentBill, String reportSymptoms, String reportTreatments) {
 
@@ -21,6 +28,7 @@ public class Appointment {
     this.paymentBill = paymentBill;
   }
 
+  // Getter and Setters 
   public String getAppointmentID() {
     return appointmentID;
   }

@@ -1,11 +1,13 @@
 package gov.smartCityGUI.banking;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 8/31/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 8/31/2023
+  * Description: This class is made to allow users to open bank accounts withdraw/deposit money, and request loans.
+  * It stores all of its data in BankAccounts.txt and its charge() method can be accessed anywhere in the system to
+  * allow users to use their bank account balance to make payments in other modules.
+**/
 
 import java.io.*;
 import gov.smartCityGUI.admin.models.*;
@@ -22,7 +24,7 @@ public class BankAccount {
    *
    * @param currentUser the user whos account will be deposited into
    * @param amount      the amount to be deposited into the account balance
-   */
+ **/
   public static void deposit(User currentUser, Double amount) {
     String[] parts = findAccount(currentUser.getID()); // Finds the users account
     deduct(parts[0], amount * -1); // Deposits the correct amount into that account
@@ -45,7 +47,7 @@ public class BankAccount {
 
   // ***********************************************************************//
 
-  /*
+  /**
    * This method takes a user as input and will do nothing if they already exist
    * or add them to the file if they dont exist.
    * 
@@ -181,7 +183,7 @@ public class BankAccount {
 
   // ***********************************************************************//
 
-  /*
+  /**
    * This method will deduct an amount from the specified account nmumber.
    * 
    * @param accountNumber the account that is being deducted from
@@ -233,7 +235,7 @@ public class BankAccount {
 
   // ***********************************************************************//
 
-  /*
+  /**
    * This method will request a loan from the bank and depending on the tax
    * account balance, they will either be approved or denied.
    * 

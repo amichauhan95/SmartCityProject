@@ -16,6 +16,11 @@ public class PlaceService{
   /* Handle Places service */
   
   // Services for Admin
+
+  /**
+    Add a new place in db
+    @param o, contains all place info and ready to be added
+  **/
   public void addPlace(Object[] o){
     String name = (String)o[0];
     String des = (String)o[1];
@@ -25,6 +30,10 @@ public class PlaceService{
     boolean isSucceed = placeRepo.addPlace(new Place(name, des, numberOfReviews, rate, img));
   }
 
+  /**
+    update an existing place in db
+    @param o, contains all place info and ready to be updated
+  **/
   public void updatePlace(Object[] o){
     String placeId = (String)o[0];
     String name = (String)o[1];
@@ -36,12 +45,22 @@ public class PlaceService{
 
   }
 
+  /**
+    delete an existing place in db
+    @param placeId, for which place need to be deleted
+  **/
   public void deletePlace(int placeId){
     boolean isSucceed = placeRepo.deletePlace(placeId);
 
   }
 
   // Services for User
+  
+  /**
+    check out an existing place info
+    @param placeId, for which place need to be checked out
+    @return list, contains the place info {imagePath, placeInfo, commentInfo, placeId}
+  **/
   public String[] checkPlace(int placeId){
     Place target = placeRepo.getPlaceById(placeId);
     String[] list = new String[4];

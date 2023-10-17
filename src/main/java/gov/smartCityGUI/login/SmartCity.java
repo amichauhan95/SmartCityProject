@@ -1,11 +1,11 @@
 package gov.smartCityGUI.login;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/13/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/13/2023
+  * Description: This class is used to manage login and registration of users. Validating fields, checking if users exist, etc.
+**/
 
 import java.io.*;
 import javax.swing.*;
@@ -15,20 +15,20 @@ public class SmartCity{
 
   //***********************************************************************//
 
-  /*
-  *Default constructor for SmartCity Class.
-  */
+  /**
+    * Default constructor for SmartCity Class.
+  **/
   public SmartCity(){
   }
 
   //***********************************************************************//
 
-  /*
-  *This method is used to check is a user exists or not
-  @param userID the ID of the user
-  @param lastName the last name of the user
-  @return a boolean, true if user exists false if not
-  */
+  /**
+    * This method is used to check is a user exists or not
+    * @param userID the ID of the user
+    * @param lastName the last name of the user
+    * @return a boolean, true if user exists false if not
+  **/
   public static boolean userExists(String userID, String lastName){
       int idNum;
     try{
@@ -60,11 +60,11 @@ public class SmartCity{
 
   //***********************************************************************//
 
-  /*
-  This method will return the user with the corresponding ID #
-  @param userID the ID of the user that will be returned
-  @return User a user object will be returned
-  */
+  /**
+    * This method will return the user with the corresponding ID #
+    * @param userID the ID of the user that will be returned
+    * @return User a user object will be returned
+  **/
   public static User getUser(String userID){
 
      try{
@@ -87,15 +87,16 @@ public class SmartCity{
 
   //***********************************************************************//
 
-  /*
-  This method is used to register a new user
-  @param firstName the user's first name
-  @param lastName the user's last name
-  @param email the user's email
-  @param phone the user's phone number
-  @param role the role of the user (admin or not)
-  @return a boolean, true if registered successfully, false if not
-  */
+  /**
+    * This method is used to register a new user and store their information in Users.txt
+	*
+    * @param firstName the user's first name
+    * @param lastName the user's last name
+    * @param email the user's email
+    * @param phone the user's phone number
+    * @param role the role of the user (admin or not)
+    * @return a boolean, true if registered successfully, false if not
+  **/
   public static boolean register(String firstName, String lastName, String email, String phone, String role){
 
     if(!validate(firstName, lastName, email, phone, role)) return false;
@@ -143,15 +144,16 @@ public class SmartCity{
 
   //***********************************************************************//
 
-  /*
-  This method is used to validate that the registration information meets the criteria
-  @param firstName the user's first name
-  @param lastName the user's last name
-  @param email the user's email
-  @param phone the user's phone number
-  @param role the role of the user (admin or not)
-  @return a boolean, true if all criteria is met, false if not
-  */
+  /**
+    * This method is used to validate that the registration information meets the criteria
+	*
+    * @param firstName the user's first name
+    * @param lastName the user's last name
+    * @param email the user's email
+    * @param phone the user's phone number
+    * @param role the role of the user (admin or not)
+    * @return a boolean, true if all criteria is met, false if not
+  **/
   public static boolean validate(String firstName, String lastName, String email, String phone, String role){
 
     if(firstName.length() < 3 || lastName.length() < 3) return false;

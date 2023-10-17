@@ -2,3 +2,7 @@
 2,Ami,Chauhan,102.30
 10,lin,lin,0.00
 5,Raj,Shah,0.00
+4,Ami,Chauhan,1200.00
+11,Keith,Austin,100.00
+3,Ami,Chauhan,28.35
+8,Huiying,Lin,0.00

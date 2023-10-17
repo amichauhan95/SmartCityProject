@@ -1,11 +1,12 @@
 package gov.smartCityGUI.login;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/19/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/19/2023
+  * Description: This class creates the login window where the user can enter their user ID and last name to access
+  * the system and all of its modules. Successful login will move the user to the Menu.java class.
+**/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -27,10 +28,10 @@ public class LoginWindow implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * The default constructor is used to create the frame and other components for
-	 * the window
-	 */
+	/**
+	  * The default constructor is used to create the frame and other components for
+	  * the window
+	**/
 	public LoginWindow() {
 		createFrame();
 		createTextFields();
@@ -40,9 +41,9 @@ public class LoginWindow implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to build the frame for the window
-	 */
+	/**
+	  * This method is used to build the frame for the window
+	**/
 	public void createFrame() {
 		frame = new JFrame("Login");
 		frame.setSize(300, 250);
@@ -55,9 +56,9 @@ public class LoginWindow implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to create and position the text fields in the frame
-	 */
+	/**
+	  * This method is used to create and position the text fields in the frame
+	**/
 	public void createTextFields() {
 		userIDText = new JTextField();
 		userIDText.setBounds(75, 40, 150, 25);
@@ -70,9 +71,9 @@ public class LoginWindow implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to create and position the labels in the frame
-	 */
+	/**
+	  * This method is used to create and position the labels in the frame
+	**/
 	public void createLabels() {
 		idLabel = new JLabel("User ID:");
 		idLabel.setBounds(75, 15, 150, 25);
@@ -87,10 +88,10 @@ public class LoginWindow implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to create and position the buttons in the frame, also
-	 * adding action listeners
-	 */
+	/**
+	  * This method is used to create and position the buttons in the frame, also
+	  * adding action listeners
+	**/
 	public void createButtons() {
 		button = new JButton("Login");
 		button.setBounds(100, 145, 100, 25);
@@ -107,9 +108,9 @@ public class LoginWindow implements ActionListener {
 
 	// ***********************************************************************//
 
-	/*
-	 * This method is used to perform actions when buttons are pressed
-	 */
+	/**
+	  * This method is used to perform actions when buttons are pressed
+	**/
 	public void actionPerformed(ActionEvent e) {
 
 		// If login button is pressed
@@ -132,5 +133,5 @@ public class LoginWindow implements ActionListener {
 			frame.dispose();
 			LoginScene back = new LoginScene();
 		}
-	}
-}
+	} // End actionPerformed() method
+} // End class

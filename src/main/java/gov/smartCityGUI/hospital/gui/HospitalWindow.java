@@ -51,6 +51,10 @@ public class HospitalWindow implements ActionListener {
   ArrayList<JCheckBox> checks = new ArrayList<JCheckBox>();
   JScrollPane scroll;
 
+  /**
+    * public HospitalWindow(User user) does ...
+    * @param User user represents ...
+  **/
   public HospitalWindow(User user) {
 
     this.system = new HospitalSystem(this.user);
@@ -61,6 +65,9 @@ public class HospitalWindow implements ActionListener {
     createLabels();
   }
 
+  /**
+    * public void createLabels() does ...
+  **/
   public void createLabels() {
 
     JLabel resources = Gui.whiteLabel("Hospital Resources");
@@ -82,10 +89,16 @@ public class HospitalWindow implements ActionListener {
     }
   }
 
+  /**
+    * public void createFrames() does ...
+  **/
   public void createFrames() {
     frame = Gui.bigFrame("Hospital System");
   }
 
+  /**
+    * public void createButtons() does ...
+  **/
   public void createButtons() {
 
     backButton = Gui.back();
@@ -157,6 +170,10 @@ public class HospitalWindow implements ActionListener {
 
   // ***********************************************************************//
 
+  /**
+    * public void actionPerformed(ActionEvent e) does ...
+    * @param ActionEvent e represents ...
+  **/
   public void actionPerformed(ActionEvent e) {
 
     if (e.getSource() == backButton) {

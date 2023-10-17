@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.page.user;
 
 import java.awt.*;
@@ -34,6 +39,7 @@ public class PlacePage implements ActionListener {
 
   public PlacePage(User user) {
     this.user = user;
+    frame.setSize(800,700);
     createHeader();
     /* Default value: 1 */
     createFrames(1, "");

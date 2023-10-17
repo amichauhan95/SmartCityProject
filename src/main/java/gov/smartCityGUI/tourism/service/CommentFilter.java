@@ -21,6 +21,10 @@ public class CommentFilter{
 
   /* Handle Sorting service */
 
+  /**
+    Search a comment by given keyword
+    @return list, 2D array contains comment info: {Imagepath, commentInfo, commentId}
+  **/
   public String[][] searchKeyword(String keyword){
    
     List<Place> places = placeRepo.searchKeyword(keyword);
@@ -36,7 +40,12 @@ public class CommentFilter{
     return list;
   }
 
-  // Consume by a Admin
+  /**
+    Sort the comment by diff algorithm - Consume by a Admin
+    @param o, is the object array that contains commentId
+    option, {1,2} triggers diff sorting algorithm for date {latest, recent}
+    @return list, 2D array contains comment info: {Imagepath, commentInfo, commentId}
+  **/
   public String[][] sortAlgo(int option, String keyword){
 
     List<UserComments> comments;
@@ -51,7 +60,12 @@ public class CommentFilter{
     
   }
 
-  // Consume by a user
+  /**
+    Sort the comment by diff algorithm - Consume by a user
+    @param o, is the object array that contains commentId
+    option, {1,2} triggers diff sorting algorithm for date {latest, recent}
+    @return list, 2D array contains comment info: {Imagepath, commentInfo, commentId}
+  **/
   public String[][] sortAlgo(int option, String keyword, User user){
 
     List<UserComments> comments;
@@ -67,7 +81,13 @@ public class CommentFilter{
     return formatData(comments);
     
   }
-  
+
+
+  /**
+    Convert comment object from list to string
+    @param comments, comments list in db
+    @return list, 2D array contains comment info: {placeName, Imagepath, commentInfo, commentId}
+  **/
   public String [][] formatData(List<UserComments> comments){
     int row = comments.size();
     int col = 3;

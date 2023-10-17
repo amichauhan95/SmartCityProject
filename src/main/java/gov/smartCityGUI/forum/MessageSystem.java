@@ -1,11 +1,12 @@
 package gov.smartCityGUI.forum;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/13/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/13/2023
+  * Description: This class is the logical layer of the message system that will handle messages that the user
+  * creates and will store and handle comments, deletion, etc.
+**/
 
 import java.io.*;
 import java.util.ArrayList;
@@ -25,9 +26,9 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method will populate the most current message codes from the file to the class
-  */
+  /**
+    * This method will populate the most current message codes from the file to the class
+  **/
   public static void getCodes(){
     try{
       File readFile = new File("src/main/java/gov/smartCityGUI/forum/static/messages.txt");
@@ -49,9 +50,9 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method will display all the messages posted to the message board
-  */
+  /**
+    * This method will display all the messages posted to the message board
+  **/
   public static ArrayList<String[]> fetchMessages(){
 
     ArrayList<String[]> list = new ArrayList<String[]>();
@@ -76,11 +77,12 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method will allow a user to post a message to the city message board
-  @param currentUser the user who is posting the message
-  @param body the body of the message being posted
-  */
+  /**
+    * This method will allow a user to post a message to the city message board
+	*
+    * @param currentUser the user who is posting the message
+    * @param body the body of the message being posted
+  **/
   public static void writeMessage(User currentUser, String body){
 
     if(body.equals("")) return;
@@ -91,12 +93,12 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method will allow a user to leave a comment on an existing message
-  @param currentUser the user who is posting the comment
-  @param scan a scanner to gather user input for the message text
-  @param com the comment that the user entered
-  */
+  /**
+    * This method will allow a user to leave a comment on an existing message
+    * @param currentUser the user who is posting the comment
+    * @param scan a scanner to gather user input for the message text
+    * @param com the comment that the user entered
+  **/
   public static void leaveComment(User currentUser, int code, String com){
       getCodes();                     // Populate most current message codes
       boolean exists = false;         // Message exists is set to false
@@ -125,11 +127,11 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method will take a message code as input and return the corresponding message from file
-  @param code the code of the message to be returned
-  @return the message that corresponds with the given code
-  */
+  /**
+    * This method will take a message code as input and return the corresponding message from file
+    * @param code the code of the message to be returned
+    * @return the message that corresponds with the given code
+  **/
   public static Message fetchMessage(int code){
     try{
       File readFile = new File("src/main/java/gov/smartCityGUI/forum/static/messages.txt");
@@ -157,10 +159,10 @@ public class MessageSystem{
 
   //***********************************************************************//
   
-  /*
-  This method wil write the data about the newly posted message to file
-  @param newMessage the new message that is being saved to file
-  */
+  /**
+    * This method wil write the data about the newly posted message to file
+    * @param newMessage the new message that is being saved to file
+  **/
   public static void fileMessage(Message newMessage){
     try{
       File readFile = new File("src/main/java/gov/smartCityGUI/forum/static/messages.txt");
@@ -198,11 +200,11 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method will add the newly posted comment to the file
-  @param message the message that is being commented on
-  @param code the code of the message being commented on
-  */
+  /**
+    * This method will add the newly posted comment to the file
+    * @param message the message that is being commented on
+    * @param code the code of the message being commented on
+  **/
   public static void addComToFile(Message message, int code){
     try{
       File readFile = new File("src/main/java/gov/smartCityGUI/forum/static/messages.txt");
@@ -253,10 +255,10 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method is used to delete a message from the message board
-  @param code the code of the message to be deleted
-  */
+  /**
+    * This method is used to delete a message from the message board
+    * @param code the code of the message to be deleted
+  **/
     public static void deleteMessage(int code){
     getCodes();
     boolean exists = false;
@@ -275,10 +277,10 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method is used to delelte a message from file given the code
-  @param code the code of the message to be deleted
-  */
+  /**
+    * This method is used to delelte a message from file given the code
+    * @param code the code of the message to be deleted
+  **/
   public static void delete(int code){
     try{
       File readFile = new File("src/main/java/gov/smartCityGUI/forum/static/messages.txt");
@@ -315,9 +317,9 @@ public class MessageSystem{
 
   //***********************************************************************//
 
-  /*
-  This method is used to clear all messages from the file
-  */
+  /**
+    * This method is used to clear all messages from the file
+  **/
   public static void clearAllMessages(){
     try{
       File readFile = new File("src/main/java/gov/smartCityGUI/forum/static/messages.txt");
@@ -333,5 +335,4 @@ public class MessageSystem{
       e.printStackTrace();
     } // End try-catch
   } // End clearAllMessages() method
-  
 } // End MessageSystem class

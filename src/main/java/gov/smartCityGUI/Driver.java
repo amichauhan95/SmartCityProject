@@ -1,6 +1,6 @@
 package gov.smartCityGUI;
 
-/*
+/**
 @author Dylan Moran
 Project: Smart City
 @date 9/19/2023

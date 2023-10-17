@@ -42,6 +42,11 @@ public class CheckInForm implements ActionListener {
   JButton button;
   JButton backButton;
 
+  /**
+    * public CheckInForm(User user, HospitalSystem system) does ...
+    * @param User user represents ...
+    * @param HospitalSystem system represents ...
+  **/
   public CheckInForm(User user, HospitalSystem system) {
     this.user = user;
     this.system = system;
@@ -51,6 +56,9 @@ public class CheckInForm implements ActionListener {
     createButtons();
   }
 
+  /**
+    * public void createFrame() does ...
+  **/
   public void createFrame() {
     frame = new JFrame("Check-in");
     frame.setSize(475, 315);
@@ -61,6 +69,9 @@ public class CheckInForm implements ActionListener {
     frame.setVisible(true);
   }
 
+  /**
+    * public void createTextFields() does ...
+  **/
   public void createTextFields() {
     firstNameText = new JTextField();
     firstNameText.setBounds(75, 80, 150, 25);
@@ -79,6 +90,9 @@ public class CheckInForm implements ActionListener {
     frame.add(appointmentIDText);
   }
 
+  /**
+    * public void createLabels() does ...
+  **/
   public void createLabels() {
 
     JLabel disclaimer = Gui.whiteLabel("Check-In");
@@ -107,6 +121,9 @@ public class CheckInForm implements ActionListener {
     frame.add(appointmentIDLabel);
   }
 
+  /**
+    * public void createButtons() does ...
+  **/
   public void createButtons() {
     button = new JButton("Confirm");
     button.setBounds(275, 185, 100, 25);
@@ -123,6 +140,10 @@ public class CheckInForm implements ActionListener {
     frame.add(backButton);
   }
 
+  /**
+    * public void actionPerformed(ActionEvent e) does ...
+    * @param ActionEvent e represents ...
+  **/
   public void actionPerformed(ActionEvent e) {
 
     // If confirm button is pressed

@@ -1,8 +1,14 @@
-
+/*
+@author Ami Chauhan
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.hospital.model;
 
 public class Patient {
 
+   // Variables for all data in Patient
   private String userID;
   private String firstName;
   private String lastName;
@@ -15,6 +21,7 @@ public class Patient {
   private String appointmentID;
   private boolean status;
 
+  // consutructor to intialize data
   public Patient() {
     this.userID = "";
     this.firstName = "";
@@ -29,6 +36,7 @@ public class Patient {
     this.status = false;
   }
 
+  // consutructor to intialize data
   public Patient(String userID, String firstName, String lastName, String birthDate, String phone, String address,
       String email, String appointmentTime, String insuranceID, String appointmentID, boolean status) {
     this.userID = userID;
@@ -44,6 +52,7 @@ public class Patient {
     this.status = status;
   }
 
+  //Getters and Setters
   public String getID() {
     return this.userID;
   }

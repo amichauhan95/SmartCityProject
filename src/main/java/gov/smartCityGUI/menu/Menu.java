@@ -1,11 +1,12 @@
 package gov.smartCityGUI.menu;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/13/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/13/2023
+  * Description: This is the menu class where the UI for the main menu is created and displayed to the user allowing them to 
+  * move throughout all of the systems.
+**/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -14,15 +15,14 @@ import gov.smartCityGUI.admin.models.*;
 import gov.smartCityGUI.admin.gui.AdminWindow;
 import gov.smartCityGUI.banking.BankWindow;
 import gov.smartCityGUI.education.gui.EducationWindow;
-//import gov.smartCityGUI.ems.EMSWindow;
 import gov.smartCityGUI.forum.ForumWindow;
 import gov.smartCityGUI.hospital.HospitalWindow;
+import gov.smartCityGUI.ems.EMSWindow;
 import gov.smartCityGUI.login.LoginScene;
 import gov.smartCityGUI.tax.TaxWindow;
 import gov.smartCityGUI.tourism.TourismWindow;
-//import gov.smartCityGUI.transit.TransitWindow;
+import gov.smartCityGUI.transit.*;
 import gov.smartCityGUI.utilities.*;
-import gov.smartcityteam2.Transit.*;
 
 
 public class Menu implements ActionListener{
@@ -44,9 +44,10 @@ public class Menu implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  Constructor used to create all UI elements and save the User's info in the class
-  */
+  /**
+    * Constructor used to create all UI elements and save the User's info in the class
+	* @param user the current user
+  **/
   public Menu(User user){
 
     this.user = user;
@@ -57,18 +58,18 @@ public class Menu implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the frame
-  */
+  /**
+    * This method is used to create the frame
+  **/
   public void createFrame(){
     frame = Gui.bigFrame("Albany+");
   }
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the labels
-  */
+  /**
+    * This method is used to create the labels
+  **/
   public void createLabels(){
     title = Gui.whiteLabel("Welcome to Albany+ " + user.getFirst());
     title.setBounds(220, 30, 400, 40);
@@ -78,9 +79,9 @@ public class Menu implements ActionListener{
   
   //***********************************************************************//
 
-  /*
-  This method is used to create all of the buttons
-  */
+  /**
+    * This method is used to create all of the buttons
+  **/
   public void createButtons(){
 
     //Tourism Button
@@ -154,10 +155,10 @@ public class Menu implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to handle all button presses
-  */
-
+  /**
+    * This method is used to handle all button presses
+	* @param e the button press
+  **/
   public void actionPerformed(ActionEvent e){
     
     //If Tax button is pressed
@@ -190,16 +191,19 @@ public class Menu implements ActionListener{
       HospitalWindow hospital = new HospitalWindow(this.user);
     }
 
+	  //If ems button is pressed
     if(e.getSource() == emsButton){
-      //frame.dispose();
-      //EMSWindow ems = new EMSWindow(this.user);
+      frame.dispose();
+      EMSWindow ems = new EMSWindow(this.user);
     }
 
+	  //If education button is pressed
     if(e.getSource() == educationButton){
       frame.dispose();
       EducationWindow ed = new EducationWindow(this.user);
     }
 
+	  //If transit button is pressed
     if(e.getSource() == transitButton){
       frame.dispose();
       ITransitRepository repository = new DummyTransitRepository();
@@ -207,6 +211,7 @@ public class Menu implements ActionListener{
       TransitMenu transit = new TransitMenu(this.user, service);
     }
 
+	  //If tourism button is pressed
     if(e.getSource() == tourismButton){
       frame.dispose();
       TourismWindow tour = new TourismWindow(this.user);
@@ -217,7 +222,5 @@ public class Menu implements ActionListener{
       frame.dispose();
       AdminWindow admin = new AdminWindow(this.user);
     }
-
-    
-  }
-}
+  } // End actionPerformed() method
+} // End class

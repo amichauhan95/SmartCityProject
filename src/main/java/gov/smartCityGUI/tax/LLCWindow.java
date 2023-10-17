@@ -1,11 +1,11 @@
 package gov.smartCityGUI.tax;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/19/2023
-I recieved help from: N/A
-*/
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/19/2023
+  * Description: This class is used to display all registered LLCs in a list and allow editing and deletion fo any LLC by an admin.
+**/
 
 import java.awt.*;
 import java.awt.event.*;
@@ -39,12 +39,12 @@ public class LLCWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * The default constructor is used to instantiate resources and build the window
-  *
-  * @param user the user accessing the tax system
-  * @param llcs and array list of business names to be displayed
-  */
+  /**
+    * The default constructor is used to instantiate resources and build the window
+    *
+    * @param user the user accessing the tax system
+    * @param llcs and array list of business names to be displayed
+  **/
   public LLCWindow(User user, ArrayList<String> llcs){
     this.user = user;
     this.llcs = llcs;
@@ -56,9 +56,9 @@ public class LLCWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create and position labels within the frame
-  */
+  /**
+    * This method is used to create and position labels within the frame
+  **/
   public void createLabels(){
 
     JLabel scrollTitle = new JLabel("All LLCs");
@@ -69,9 +69,9 @@ public class LLCWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create the input frame and all of its componenets, used to get the edited name of a business
-  */
+  /**
+    * This method is used to create the input frame and all of its componenets, used to get the edited name of a business
+  **/
   public void inputFrame(){
 
     //Input frame
@@ -99,18 +99,18 @@ public class LLCWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to build the frame for the window
-  */
+  /**
+    * This method is used to build the frame for the window
+  **/
   public void createFrames(){
     frame = Gui.bigFrame("View LLCs");
   } // End createFrames() method
 
   //***********************************************************************//
 
-  /*
-  * This method is used to create and position the buttons in the frame, also adding action listeners
-  */
+  /**
+    * This method is used to create and position the buttons in the frame, also adding action listeners
+  **/
   public void createButtons(){
 
     //Back button
@@ -133,9 +133,9 @@ public class LLCWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  This method is used to create the scroll pane containing all of the registered business names
-  */
+  /**
+    * This method is used to create the scroll pane containing all of the registered business names
+  **/
   public void createScrollPane(){
 
     ArrayList<String> allLLCs = llcs;
@@ -167,9 +167,9 @@ public class LLCWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
-  * This method is used to perform actions when a button is pressed
-  */
+  /**
+    * This method is used to perform actions when a button is pressed
+  **/
   public void actionPerformed(ActionEvent e){
 
     //If back button is pressed
@@ -178,5 +178,5 @@ public class LLCWindow implements ActionListener{
       TaxWindow tax = new TaxWindow(this.user);
     }
     
-  }
-}
+  } // End actionPerformed() method
+} // End class

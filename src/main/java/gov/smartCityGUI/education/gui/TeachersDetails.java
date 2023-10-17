@@ -1,3 +1,15 @@
+/**
+ * Team Member(s) working on this class: Ami Chauhan, Melih Kartal
+ * Project: Smart City
+ * Author: Ami Chauhan
+ *
+ * Description:
+ * This class represents the user interface for entering teacher details. It includes text fields for capturing
+ * first name, last name, expertise, grade level, school name, and work start date. Users can submit the details,
+ * and upon submission, a new Teacher object is created and written to a file. It also has a "Back" button to
+ * return to the teacher portal.
+ */
+
 package gov.smartCityGUI.education.gui;
 
 import gov.smartCityGUI.menu.Menu;

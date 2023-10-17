@@ -1,10 +1,11 @@
 package gov.smartCityGUI.banking;
 
-/*
-@author Dylan Moran
-Project: Smart City
-@date 9/19/2023
-I recieved help from: N/A
+/**
+  * @author Dylan Moran
+  * Project: Smart City
+  * @date 9/19/2023
+  * Description: This class is the UI for the Bank system. Here users will be able to interact with their bank account
+  * view their balance and perform operations.
 */
 
 import java.awt.*;
@@ -39,7 +40,7 @@ public class BankWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * The default constructor is used to create a new BankAccount instance and build the window
   * 
   * @param user the user accessing the Bank System
@@ -55,7 +56,7 @@ public class BankWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to build the frame for the window
   */
   public void createFrames(){
@@ -65,7 +66,7 @@ public class BankWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to create and position labels within the frame
   *
   * @param parts a String array containing the users account information
@@ -87,7 +88,7 @@ public class BankWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to create and position the buttons in th frame, also adding action listeners
   */
   public void createButtons(){
@@ -118,7 +119,7 @@ public class BankWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to create the input frame and all of its own components to gather user input
   */
   public void inputFrame(){
@@ -155,7 +156,7 @@ public class BankWindow implements ActionListener{
 
   //***********************************************************************//
 
-  /*
+  /**
   * This method is used to perform actions when buttons are pressed
   *
   * @param e the click, used to access the source that was clicked

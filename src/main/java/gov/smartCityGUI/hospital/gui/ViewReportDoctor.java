@@ -48,10 +48,6 @@ public class ViewReportDoctor implements ActionListener {
     this.user = user;
     this.system = system;
 
-    // createFrames();
-    // createButtons();
-    // createLabels();
-    // createScrollPane();
     inputFrame();
   }
 

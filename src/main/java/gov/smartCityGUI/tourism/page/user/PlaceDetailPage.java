@@ -1,3 +1,8 @@
+/*@author Huiying Lin
+Project: Smart City
+@date 9/27/2023
+I recieved help from: N/A
+*/
 package gov.smartCityGUI.tourism.page.user;
 import java.awt.*;
 import java.awt.event.*;
@@ -45,11 +50,13 @@ public class PlaceDetailPage implements ActionListener{
   public PlaceDetailPage(User user, Button button){
     this.user = user;
     this.button = button;
-    System.out.println("In Detail");
+    frame.setSize(800,700);
+
     createHeader();
     createPlaceInfo();
   }
 
+  // header component for the page
   public void createHeader(){
     
     frame.setLayout(new BorderLayout());
@@ -138,6 +145,11 @@ public class PlaceDetailPage implements ActionListener{
     
   }
 
+  /**
+    Convert image to Jlabel component
+    @param image name
+    @return image Jlabel
+  **/
   public JLabel imageFormat(String image){
     ImageIcon imageIcon = new ImageIcon(IMAGE_PATH + image);
     Image scaledImage = imageIcon.getImage().getScaledInstance(350, 250, Image.SCALE_FAST);
@@ -150,7 +162,7 @@ public class PlaceDetailPage implements ActionListener{
     JFrame f=new JFrame("User Comment Form");
     f.setSize(500, 400);
     f.setLocation(300, 200);
-    f.setLayout(new FlowLayout());//设置布局管理器
+    f.setLayout(new FlowLayout());
     
     f.setVisible(true);
     JPanel panel = new JPanel();
@@ -216,7 +228,6 @@ public class PlaceDetailPage implements ActionListener{
           f.dispose();
           frame.dispose();
           new PlaceDetailPage(user, button);
-          // te();
         } else {
           JOptionPane.showMessageDialog(f,"*Please enter 0 - 5\n*Comment must not be empty","Alert",JOptionPane.WARNING_MESSAGE);
         }
